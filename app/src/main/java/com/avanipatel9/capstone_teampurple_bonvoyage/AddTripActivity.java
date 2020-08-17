@@ -37,5 +37,17 @@ public class AddTripActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_trip);
+        
+        mDatabase = FirebaseDatabase.getInstance().getReference("users");
+        m2Database = FirebaseDatabase.getInstance().getReference("trips");
+
+        t_Destination = (EditText) findViewById(R.id.destination);
+        t_budget = (EditText) findViewById(R.id.budget);
+        t_DateOfDeparture = (EditText) findViewById(R.id.date_of_departure);
+        t_DateOfReturn = (EditText) findViewById(R.id.date_of_return);
+        t_FriendPhone1 = (EditText) findViewById(R.id.friend_phone_1);
+        t_FriendPhone2 = (EditText) findViewById(R.id.friend_phone_2);
+        t_FriendPhone3 = (EditText) findViewById(R.id.friend_phone_3);
+        submit = (Button) findViewById(R.id.submit_button);
     }
 }
