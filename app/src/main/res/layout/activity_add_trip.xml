@@ -1,9 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AddTripActivity">
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginLeft="25dp"
+            android:text="Add trip Details"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/message"
+            android:inputType="textPersonName"
+            android:text="Please fill in the details" />
+
+        <EditText android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:hint="Destination"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:id="@+id/destination"
+            android:layout_marginTop="30dp"/>
+        <EditText android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:inputType="number"
+            android:hint="budget"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:id="@+id/budget"
+            android:layout_marginTop="15dp"/>
+        <EditText android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:inputType="date"
+            android:hint="Date of departure"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:onClick="showDatePickerDialog"
+            android:id="@+id/date_of_departure"
+            android:layout_marginTop="15dp"/>
+        <EditText android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:inputType="date"
+            android:hint="Date of return"
+            android:onClick="showDatePickerDialog"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:id="@+id/date_of_return"
+            android:layout_marginTop="15dp"/>
+        <EditText android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:inputType="phone"
+            android:hint="enter 1st friend's phone number (optional)"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:id="@+id/friend_phone_1"
+            android:layout_marginTop="15dp"/>
+        <EditText android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:inputType="phone"
+            android:hint="enter 2st friend's phone number (optional)"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:id="@+id/friend_phone_2"
+            android:layout_marginTop="15dp"/>
+        <EditText android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:inputType="phone"
+            android:hint="enter 3st friend's phone number (optional)"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:id="@+id/friend_phone_3"
+            android:layout_marginTop="15dp"/>
+
+        <Button android:layout_width="190dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="submit"
+            android:textColor="#000000"
+            android:id="@+id/submit_button" />
+
+    </LinearLayout>
+
+</ScrollView>
