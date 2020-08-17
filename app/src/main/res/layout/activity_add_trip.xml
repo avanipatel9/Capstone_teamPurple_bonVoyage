@@ -5,17 +5,13 @@
     android:id="@+id/scrollView1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-
-
     <LinearLayout android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="30dp"
-        android:orientation="vertical"
-        >
-
+        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,10 +20,7 @@
             android:text="Add trip Details"
             android:textColor="#ffffff"
             android:textSize="18sp"
-
             android:textStyle="bold" />
-
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,7 +28,6 @@
             android:id="@+id/message"
             android:inputType="textPersonName"
             android:text="Please fill in the details" />
-
         <EditText android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:hint="Destination"
@@ -93,7 +85,6 @@
             android:paddingLeft="5dp"
             android:id="@+id/friend_phone_3"
             android:layout_marginTop="15dp"/>
-
         <Button android:layout_width="190dp"
             android:layout_height="38dp"
             android:layout_gravity="center_horizontal"
@@ -101,7 +92,5 @@
             android:text="submit"
             android:textColor="#000000"
             android:id="@+id/submit_button" />
-
     </LinearLayout>
-
 </ScrollView>
