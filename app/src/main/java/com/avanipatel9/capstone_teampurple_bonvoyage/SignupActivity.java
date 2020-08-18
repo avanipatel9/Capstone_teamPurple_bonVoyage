@@ -54,6 +54,13 @@ public class SignupActivity extends AppCompatActivity {
                 Password = et_password.getText().toString();
                 ConfirmPassword = et_confirmPassword.getText().toString();
 
+                if (!Email.matches("[a-zA-Z0-9._-]+@[a-z]+.[a-z]+")) {
+                    message.setText("Invalid Email Address");
+                }
+                else {
+                    
+                }
+
             }
         });
 
