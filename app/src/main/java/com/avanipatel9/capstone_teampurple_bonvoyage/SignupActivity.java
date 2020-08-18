@@ -58,7 +58,26 @@ public class SignupActivity extends AppCompatActivity {
                     message.setText("Invalid Email Address");
                 }
                 else {
-                    
+                    if (Password.equals(ConfirmPassword) && Password.length() != 0) {
+
+                        databaseref.child("Name").setValue(Name);
+                        databaseref.child("Email").setValue(Email);
+                        databaseref.child("City").setValue(City);
+                        databaseref.child("Password").setValue(Password);
+                        databaseref.child("Trips").setValue(" ");
+                        message.setText("You have registered successfully!");
+
+                        SharedPreferences.Editor editor = getSharedPreferences("phoneandpass", MODE_PRIVATE).edit();
+                        editor.putString("phonenumber", phNumber);
+                        editor.putString("password", Password);
+                        editor.apply();
+
+                        Intent intent = new Intent(SignupActivity.this, HomeActivity.class);
+                        startActivity(intent);
+
+                    } else {
+                        message.setText("Password and Confirm Password should be the same!");
+                    }
                 }
 
             }
