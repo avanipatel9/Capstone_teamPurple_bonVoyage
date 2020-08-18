@@ -84,6 +84,22 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
         mSignOutButton = findViewById(R.id.sign_out_button);
     }
 
+    // [START on_start_check_user]
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
+
+        // [START_EXCLUDE]
+        if (mVerificationInProgress && validatePhoneNumber()) {
+            startPhoneNumberVerification(mPhoneNumberField.getText().toString());
+        }
+        // [END_EXCLUDE]
+    }
+    // [END on_start_check_user]
+
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
