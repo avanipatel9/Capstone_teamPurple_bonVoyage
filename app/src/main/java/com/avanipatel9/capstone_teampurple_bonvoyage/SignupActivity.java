@@ -48,6 +48,12 @@ public class SignupActivity extends AppCompatActivity {
                 et_confirmPassword = findViewById(R.id.confirm_password);
                 message = findViewById(R.id.message);
 
+                Name = et_name.getText().toString();
+                Email = et_email.getText().toString();
+                City = et_city.getText().toString();
+                Password = et_password.getText().toString();
+                ConfirmPassword = et_confirmPassword.getText().toString();
+
             }
         });
 
