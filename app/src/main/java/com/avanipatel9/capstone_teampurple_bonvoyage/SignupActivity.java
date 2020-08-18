@@ -2,7 +2,10 @@ package com.avanipatel9.capstone_teampurple_bonvoyage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,5 +25,31 @@ public class SignupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
+        Bundle bundle = new Bundle();
+        bundle  = getIntent().getExtras();
+        final String phNumber = bundle.getString("PhNumber");
+        System.out.println("In Signup class "+ phNumber);
+
+        GlobalVariables a = (GlobalVariables)getApplication();
+        a.setData(phNumber);
+        submitButton = findViewById(R.id.submit_button);
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                databaseref = mDatabase.child("users").child(phNumber);
+//                String id = mDatabase.push().getKey();
+                databaseref = mDatabase.child(phNumber);
+                et_name = (EditText)findViewById(R.id.name);
+                et_city = (EditText)findViewById(R.id.city);
+                et_password = findViewById(R.id.password);
+                et_email = findViewById(R.id.email);
+                et_confirmPassword = findViewById(R.id.confirm_password);
+                message = findViewById(R.id.message);
+
+            }
+        });
+
     }
 }
