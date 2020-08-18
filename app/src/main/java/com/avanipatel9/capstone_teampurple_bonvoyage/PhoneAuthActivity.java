@@ -10,7 +10,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthProvider;
+
+import java.util.concurrent.TimeUnit;
 
 public class PhoneAuthActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "PhoneAuthActivity";
@@ -46,10 +49,32 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
     private Button mVerifyButton;
     private Button mResendButton;
     private Button mSignOutButton;
-
+    String phNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone_auth);
+    }
+
+
+
+    private void startPhoneNumberVerification(String phoneNumber)
+    {
+        phNumber = phoneNumber;
+        // [START start_phone_auth]
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                phoneNumber,        // Phone number to verify
+                60,                 // Timeout duration
+                TimeUnit.SECONDS,   // Unit of timeout
+                this,               // Activity (for callback binding)
+                mCallbacks);        // OnVerificationStateChangedCallbacks
+        // [END start_phone_auth]
+
+        mVerificationInProgress = true;
+    }
+
+    @Override
+    public void onClick(View v) {
+        
     }
 }
