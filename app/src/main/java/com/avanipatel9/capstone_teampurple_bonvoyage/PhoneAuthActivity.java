@@ -130,6 +130,21 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
                 });
     }
 
+    // [START resend_verification]
+    private void resendVerificationCode(String phoneNumber, PhoneAuthProvider.ForceResendingToken token)
+    {
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                phoneNumber,        // Phone number to verify
+                60,                 // Timeout duration
+                TimeUnit.SECONDS,   // Unit of timeout
+                this,               // Activity (for callback binding)
+                mCallbacks,         // OnVerificationStateChangedCallbacks
+                token);             // ForceResendingToken from callbacks
+    }
+
+
+    // [END resend_verification]
+
     private void updateUI(int stateSigninFailed) {
     }
     // [END sign_in_with_phone]
