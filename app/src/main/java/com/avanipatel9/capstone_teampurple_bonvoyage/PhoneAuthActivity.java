@@ -145,6 +145,14 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
 
     // [END resend_verification]
 
+    private void verifyPhoneNumberWithCode(String verificationId, String code)
+    {
+        // [START verify_with_code]
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
+        // [END verify_with_code]
+        signInWithPhoneAuthCredential(credential);
+    }
+
     private void updateUI(int stateSigninFailed) {
     }
     // [END sign_in_with_phone]
