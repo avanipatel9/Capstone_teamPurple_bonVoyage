@@ -3,6 +3,7 @@ package com.avanipatel9.capstone_teampurple_bonvoyage;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -73,8 +74,18 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
         mVerificationInProgress = true;
     }
 
+    private boolean validatePhoneNumber() {
+        String phoneNumber = mPhoneNumberField.getText().toString();
+        if (TextUtils.isEmpty(phoneNumber)) {
+            mPhoneNumberField.setError("Invalid phone number.");
+            return false;
+        }
+
+        return true;
+    }
+
     @Override
     public void onClick(View v) {
-        
+
     }
 }
