@@ -1,17 +1,25 @@
 package com.avanipatel9.capstone_teampurple_bonvoyage;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
@@ -83,6 +91,49 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
         }
         return true;
     }
+
+    // [START sign_in_with_phone]
+    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithCredential:success");
+
+                            FirebaseUser user = task.getResult().getUser();
+                            // [START_EXCLUDE]
+                            //updateUI(STATE_SIGNIN_SUCCESS, user);
+                            System.out.println("signed inn");
+                            Bundle bundle =new Bundle();
+                            bundle.putString("PhNumber",phNumber);
+                            Intent intent= new Intent(PhoneAuthActivity.this,UserRegistrationActivity.class);
+                            intent.putExtras(bundle);
+                            startActivity(intent);
+                            // [END_EXCLUDE]
+                        } else {
+                            // Sign in failed, display a message and update the UI
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
+                                // The verification code entered was invalid
+                                // [START_EXCLUDE silent]
+                                mVerificationField.setError("Invalid code.");
+                                // [END_EXCLUDE]
+                            }
+                            // [START_EXCLUDE silent]
+                            // Update UI
+                            updateUI(STATE_SIGNIN_FAILED);
+                            // [END_EXCLUDE]
+                        }
+                    }
+                });
+    }
+
+    private void updateUI(int stateSigninFailed) {
+    }
+    // [END sign_in_with_phone]
+    
 
     private void enableViews(View... views) {
         for (View v : views) {
