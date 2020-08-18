@@ -63,6 +63,25 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone_auth);
+        // Restore instance state
+        if (savedInstanceState != null) {
+            onRestoreInstanceState(savedInstanceState);
+        }
+
+        // Assign views
+        mPhoneNumberViews = findViewById(R.id.phone_auth_fields);
+        mSignedInViews = findViewById(R.id.signed_in_buttons);
+
+        mStatusText = findViewById(R.id.status);
+        mDetailText = findViewById(R.id.detail);
+
+        mPhoneNumberField = findViewById(R.id.field_phone_number);
+        mVerificationField = findViewById(R.id.field_verification_code);
+
+        mStartButton = findViewById(R.id.button_start_verification);
+        mVerifyButton = findViewById(R.id.button_verify_phone);
+        mResendButton = findViewById(R.id.button_resend);
+        mSignOutButton = findViewById(R.id.sign_out_button);
     }
 
     @Override
@@ -169,9 +188,90 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
         updateUI(STATE_INITIALIZED);
     }
 
-    private void updateUI(int stateSigninFailed) {
+    private void updateUI(int uiState) {
+        updateUI(uiState, mAuth.getCurrentUser(), null);
     }
-    // [END sign_in_with_phone]
+
+    private void updateUI(FirebaseUser user) {
+        if (user != null) {
+            updateUI(STATE_SIGNIN_SUCCESS, user);
+        } else {
+            updateUI(STATE_INITIALIZED);
+        }
+    }
+
+    private void updateUI(int uiState, FirebaseUser user) {
+        updateUI(uiState, user, null);
+    }
+
+    private void updateUI(int uiState, PhoneAuthCredential cred) {
+        updateUI(uiState, null, cred);
+    }
+
+    private void updateUI(int uiState, FirebaseUser user, PhoneAuthCredential cred) {
+        switch (uiState) {
+            case STATE_INITIALIZED:
+                // Initialized state, show only the phone number field and start button
+                enableViews(mStartButton, mPhoneNumberField);
+                disableViews(mVerifyButton, mResendButton, mVerificationField);
+                mDetailText.setText(null);
+                break;
+            case STATE_CODE_SENT:
+                // Code sent state, show the verification field, the
+                enableViews(mVerifyButton, mResendButton, mPhoneNumberField, mVerificationField);
+                disableViews(mStartButton);
+                mDetailText.setText(R.string.status_code_sent);
+                break;
+            case STATE_VERIFY_FAILED:
+                // Verification has failed, show all options
+                enableViews(mStartButton, mVerifyButton, mResendButton, mPhoneNumberField,
+                        mVerificationField);
+                mDetailText.setText(R.string.status_verification_failed);
+                break;
+            case STATE_VERIFY_SUCCESS:
+                // Verification has succeeded, proceed to firebase sign in
+                disableViews(mStartButton, mVerifyButton, mResendButton, mPhoneNumberField,
+                        mVerificationField);
+                mDetailText.setText(R.string.status_verification_succeeded);
+
+                // Set the verification text based on the credential
+                if (cred != null) {
+                    if (cred.getSmsCode() != null) {
+                        mVerificationField.setText(cred.getSmsCode());
+                    } else {
+                        mVerificationField.setText(R.string.instant_validation);
+                    }
+                }
+
+                break;
+            case STATE_SIGNIN_FAILED:
+                // No-op, handled by sign-in check
+                mDetailText.setText(R.string.status_sign_in_failed);
+                break;
+            case STATE_SIGNIN_SUCCESS:
+                // Np-op, handled by sign-in check
+                break;
+        }
+
+        if (user == null) {
+            // Signed out
+            mPhoneNumberViews.setVisibility(View.VISIBLE);
+            mSignedInViews.setVisibility(View.GONE);
+
+            mStatusText.setText(R.string.signed_out);
+        } else {
+            // Signed in
+            mPhoneNumberViews.setVisibility(View.GONE);
+            mSignedInViews.setVisibility(View.VISIBLE);
+
+            enableViews(mPhoneNumberField, mVerificationField);
+            mPhoneNumberField.setText(null);
+            mVerificationField.setText(null);
+
+            mStatusText.setText(R.string.signed_in);
+            mDetailText.setText(getString(R.string.firebase_status_fmt, user.getUid()));
+        }
+    }
     
 
     private void enableViews(View... views) {
@@ -187,7 +287,30 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.button_start_verification:
+                if (!validatePhoneNumber()) {
+                    return;
+                }
+                startPhoneNumberVerification(mPhoneNumberField.getText().toString());
+                break;
+            case R.id.button_verify_phone:
+                String code = mVerificationField.getText().toString();
+                if (TextUtils.isEmpty(code)) {
+                    mVerificationField.setError("Cannot be empty.");
+                    return;
+                }
+
+                verifyPhoneNumberWithCode(mVerificationId, code);
+                break;
+            case R.id.button_resend:
+                resendVerificationCode(mPhoneNumberField.getText().toString(), mResendToken);
+                break;
+            case R.id.sign_out_button:
+                signOut();
+                break;
+        }
 
     }
 }
