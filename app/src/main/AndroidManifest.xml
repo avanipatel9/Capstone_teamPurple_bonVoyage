@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TripActivity"></activity>
+        <activity android:name=".PhoneAuthActivity"></activity>
+        <activity android:name=".TripActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".AddTripActivity" />
