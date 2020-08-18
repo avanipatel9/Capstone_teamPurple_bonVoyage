@@ -65,7 +65,17 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_phone_auth);
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean(KEY_VERIFY_IN_PROGRESS, mVerificationInProgress);
+    }
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mVerificationInProgress = savedInstanceState.getBoolean(KEY_VERIFY_IN_PROGRESS);
+    }
 
     private void startPhoneNumberVerification(String phoneNumber)
     {
@@ -151,6 +161,12 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
         // [END verify_with_code]
         signInWithPhoneAuthCredential(credential);
+    }
+
+    private void signOut()
+    {
+        mAuth.signOut();
+        updateUI(STATE_INITIALIZED);
     }
 
     private void updateUI(int stateSigninFailed) {
