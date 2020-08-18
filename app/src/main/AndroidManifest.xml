@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserRegistrationActivity"></activity>
+        <activity android:name=".SplashActivity"></activity>
+        <activity android:name=".UserRegistrationActivity" />
         <activity android:name=".PhoneAuthActivity" />
         <activity android:name=".TripActivity" />
         <activity android:name=".HomeActivity" />
@@ -27,7 +28,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
