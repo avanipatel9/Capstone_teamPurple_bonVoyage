@@ -90,6 +90,7 @@
                 <Button
                     android:theme="@style/ThemeOverlay.MyDarkButton"
                     android:id="@+id/button_start_verification"
+                    android:layout_marginLeft="5dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.0"
@@ -98,6 +99,7 @@
                 <Button
                     android:theme="@style/ThemeOverlay.MyDarkButton"
                     android:id="@+id/button_verify_phone"
+                    android:layout_marginLeft="5dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.0"
@@ -106,6 +108,7 @@
                 <Button
                     android:theme="@style/ThemeOverlay.MyDarkButton"
                     android:id="@+id/button_resend"
+                    android:layout_marginLeft="5dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.0"
