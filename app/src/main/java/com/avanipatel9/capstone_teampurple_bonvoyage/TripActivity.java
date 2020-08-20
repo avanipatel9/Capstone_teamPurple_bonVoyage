@@ -3,17 +3,24 @@ package com.avanipatel9.capstone_teampurple_bonvoyage;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +39,8 @@ public class TripActivity extends AppCompatActivity {
     private Button submit,location;
     private EditText enteredmoney;
     private String moneybythis;
+    private FloatingActionButton addBillPic;
+    Dialog dialog;
 
     private ArrayAdapter adapter;
     ArrayList<String> listItems;
@@ -62,6 +71,7 @@ public class TripActivity extends AppCompatActivity {
         location = findViewById(R.id.addLocation);
         enteredmoney = findViewById(R.id.entermoney);
         moneyspentbyme = findViewById(R.id.moneyspentbyme);
+        addBillPic = findViewById(R.id.uploadBillPicBtn);
 
 //        adapter=new ArrayAdapter<String>(this,
 //                android.R.layout.simple_list_item_1,
@@ -176,5 +186,52 @@ public class TripActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        addBillPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showchooser();
+            }
+        });
+
+
+    }
+
+    public void showchooser() {
+        //dialog intialization
+        dialog = new Dialog(TripActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        TripActivity.this.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setContentView(R.layout.choose);
+        dialog.setCancelable(true);
+
+        LinearLayout camera_choose = (LinearLayout) dialog.findViewById(R.id.camera_picker);
+        LinearLayout gallery_choose = (LinearLayout) dialog.findViewById(R.id.gallery_picker);
+
+
+        camera_choose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("CAMERA >>>>>> ");
+                try {
+                    launchCameraForImage();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                dialog.dismiss();
+            }
+        });
+
+        gallery_choose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                galleryImageIntent();
+                dialog.dismiss();
+            }
+        });
+
+
+        dialog.show();
     }
 }
