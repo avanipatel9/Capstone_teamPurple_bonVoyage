@@ -2,8 +2,11 @@ package com.avanipatel9.capstone_teampurple_bonvoyage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -26,7 +29,7 @@ public class TripActivity extends AppCompatActivity {
     private String moneyspent;
     private TextView Budget;
     private TextView Destination,moneyspentbyme;
-    private Button submit;
+    private Button submit,location;
     private EditText enteredmoney;
     private String moneybythis;
 
@@ -53,11 +56,12 @@ public class TripActivity extends AppCompatActivity {
         tripid = a.getTripid();
         SharedPreferences prefs = getSharedPreferences("phoneandpass", MODE_PRIVATE);
         phonenumber = prefs.getString("phonenumber", null);
-        Destination = (TextView) findViewById(R.id.destination);
-        Budget = (TextView) findViewById(R.id.moneyspent);
-        submit = (Button) findViewById(R.id.submit);
-        enteredmoney = (EditText) findViewById(R.id.entermoney);
-        moneyspentbyme = (TextView) findViewById(R.id.moneyspentbyme);
+        Destination = findViewById(R.id.destination);
+        Budget = findViewById(R.id.moneyspent);
+        submit = findViewById(R.id.submit);
+        location = findViewById(R.id.addLocation);
+        enteredmoney = findViewById(R.id.entermoney);
+        moneyspentbyme = findViewById(R.id.moneyspentbyme);
 
 //        adapter=new ArrayAdapter<String>(this,
 //                android.R.layout.simple_list_item_1,
@@ -158,6 +162,17 @@ public class TripActivity extends AppCompatActivity {
                 mDatabase.child(tripid).child("moneyspent").setValue(total);
                 Budget.setText("total money spent in the group:: " + text);
                 moneyspentbyme.setText("total money contributed by me::  " + text1);
+            }
+        });
+
+
+
+
+        //open maps
+        location.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TripActivity.this, MapActivity.class);
             }
         });
     }
