@@ -6,22 +6,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#fff"
+    android:background="@drawable/bg"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.avanipatel9.capstone_teampurple_bonvoyage.MainActivity"
     tools:showIn="@layout/app_bar_main"
     android:gravity="center">
 
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/location_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Hello there, Welcome to the Bon Voyage splitter!"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textStyle="italic"
-        android:gravity="center_horizontal"/>
+<!--    <com.google.android.material.textview.MaterialTextView-->
+<!--        android:id="@+id/location_id"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="16dp"-->
+<!--        android:text="Hello there, Welcome to the Bon Voyage splitter!"-->
+<!--        android:textAppearance="@style/TextAppearance.AppCompat.Display1"-->
+<!--        android:textStyle="italic"-->
+<!--        android:gravity="center_horizontal"/>-->
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -34,7 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="New User?" />
+            android:text="New User?"
+            android:textColor="#000"/>
         <!--android:textColor="#ffffff"-->
 
         <com.google.android.material.button.MaterialButton
@@ -56,7 +57,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="Have an account?" />
+            android:text="Have an account?"
+            android:textColor="#000"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/signinButton_id"
