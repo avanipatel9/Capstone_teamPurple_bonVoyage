@@ -53,6 +53,7 @@ public class TripActivity extends AppCompatActivity {
     Uri mediaUri;
     private ArrayAdapter adapter;
     ArrayList<String> listItems;
+    int SELECT_IMAGES = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -249,7 +250,7 @@ public class TripActivity extends AppCompatActivity {
         try {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             photoFile = getPhotoFileUri();
-            mediaUri = FileProvider.getUriForFile(TripActivity.this, "com.note_teampurple_android.provider", photoFile);
+            mediaUri = FileProvider.getUriForFile(TripActivity.this, "com.avanipatel9.capstone_teampurple_bonvoyage.provider", photoFile);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, mediaUri);
 
             if (intent.resolveActivity(TripActivity.this.getPackageManager()) != null) {
@@ -264,6 +265,16 @@ public class TripActivity extends AppCompatActivity {
                 e1.printStackTrace();
             }
 
+        }
+    }
+
+    void galleryImageIntent() {
+        Intent intent = null;
+        try {
+            intent = ImagePicker.getPickImageIntent(TripActivity.this);
+            startActivityForResult(intent, SELECT_IMAGES);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
