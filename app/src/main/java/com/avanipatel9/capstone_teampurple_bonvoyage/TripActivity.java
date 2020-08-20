@@ -173,6 +173,7 @@ public class TripActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TripActivity.this, MapActivity.class);
+                startActivity(intent);
             }
         });
     }

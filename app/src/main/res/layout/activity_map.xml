@@ -1,47 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#A2BCEA">
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"/>
 
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        <LinearLayout
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/photos_background_stroke"
+            android:gravity="center">
 
-    <EditText
-        android:id="@+id/et_search"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:ems="10"
-        android:fontFamily="sans-serif"
-        android:hint="Search Destination"
-        android:inputType="textPersonName"
-        android:paddingStart="16dp"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/find"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:layout_width="54dp"
+                android:layout_height="40dp"
+                android:src="@drawable/googlemap"></ImageView>
 
-    <ImageView
-        android:id="@+id/find"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="20dp"
-        android:src="@android:drawable/ic_search_category_default"
-        app:layout_constraintBottom_toTopOf="@+id/map"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:text="Expense Location"
+                android:textColor="#0E0E0E"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/img_nav"
+            android:visibility="gone"
+            android:layout_gravity="bottom|end"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/nav"
+            android:layout_width="60dp"
+            android:layout_height="60dp"/>
+    </FrameLayout>
+</LinearLayout>
