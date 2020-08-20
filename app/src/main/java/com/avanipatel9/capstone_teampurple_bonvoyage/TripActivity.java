@@ -1,6 +1,7 @@
 package com.avanipatel9.capstone_teampurple_bonvoyage;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -8,7 +9,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +32,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class TripActivity extends AppCompatActivity {
@@ -41,7 +48,9 @@ public class TripActivity extends AppCompatActivity {
     private String moneybythis;
     private FloatingActionButton addBillPic;
     Dialog dialog;
-
+    int REQUEST_CAMERA = 100;
+    File photoFile;
+    Uri mediaUri;
     private ArrayAdapter adapter;
     ArrayList<String> listItems;
 
@@ -233,5 +242,45 @@ public class TripActivity extends AppCompatActivity {
 
 
         dialog.show();
+    }
+
+    // for high quality image
+    public void launchCameraForImage() throws IOException {
+        try {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            photoFile = getPhotoFileUri();
+            mediaUri = FileProvider.getUriForFile(TripActivity.this, "com.note_teampurple_android.provider", photoFile);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, mediaUri);
+
+            if (intent.resolveActivity(TripActivity.this.getPackageManager()) != null) {
+                startActivityForResult(intent, REQUEST_CAMERA);
+            }
+
+        } catch (Exception e) {
+
+            try {
+                Log.e("launchCameraForImage: ", e.getMessage());
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+
+        }
+    }
+
+    public File getPhotoFileUri() {
+        // Get safe storage directory for photos
+        // Use `getExternalFilesDir` on Context to access package-specific directories.
+        // This way, we don't need to request external read/write runtime permissions.
+        File mediaStorageDir = new File(TripActivity.this.getExternalFilesDir(Environment.DIRECTORY_PICTURES), "firechat");
+
+        // Create the storage directory if it does not exist
+        if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()) {
+            // Log.e(TAG, "failed to create directory");
+        }
+
+        // Return the file target for the photo based on filename
+        File file = new File(mediaStorageDir.getPath() + File.separator + System.currentTimeMillis() + ".jpg");
+
+        return file;
     }
 }
