@@ -42,9 +42,9 @@ public class TripActivity extends AppCompatActivity {
     private String phonenumber;
     private String moneyspent;
     private TextView Budget;
-    private TextView Destination,moneyspentbyme;
+    private TextView Destination,moneyspentbyme,moneyspentdetail;
     private Button submit,location;
-    private EditText enteredmoney;
+    private EditText enteredmoney,enterdetail;
     private String moneybythis;
     private FloatingActionButton addBillPic;
     Dialog dialog;
@@ -80,7 +80,10 @@ public class TripActivity extends AppCompatActivity {
         submit = findViewById(R.id.submit);
         location = findViewById(R.id.addLocation);
         enteredmoney = findViewById(R.id.entermoney);
+        enterdetail = findViewById(R.id.enterdetail);
+
         moneyspentbyme = findViewById(R.id.moneyspentbyme);
+        moneyspentdetail = findViewById(R.id.moneyspentdetail);
         addBillPic = findViewById(R.id.uploadBillPicBtn);
 
 //        adapter=new ArrayAdapter<String>(this,
@@ -96,7 +99,7 @@ public class TripActivity extends AppCompatActivity {
                 Destination.setText(destination);
                 System.out.print(moneyspent + "  " + moneyspentbyme);
                 Budget.setText("total money spent in the group:: " +moneyspent);
-                moneyspentbyme.setText("total money contributed by me::  " + moneybythis);
+                moneyspentbyme.setText("total money contributed by me:  " + moneybythis);
                 System.out.println("   ");
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
                     String name = ds.getKey().toString();
@@ -137,6 +140,7 @@ public class TripActivity extends AppCompatActivity {
                         String destination = dataSnapshot.child("Destination").getValue().toString();
                         moneyspent = dataSnapshot.child("moneyspent").getValue().toString();
                         moneybythis = dataSnapshot.child(phonenumber).getValue().toString();
+
                         Destination.setText(destination);
                         Budget.setText("total money spent in the group:: " +moneyspent);
                         moneyspentbyme.setText("total money contributed by me::  " + moneybythis);
@@ -182,6 +186,7 @@ public class TripActivity extends AppCompatActivity {
                 mDatabase.child(tripid).child("moneyspent").setValue(total);
                 Budget.setText("total money spent in the group:: " + text);
                 moneyspentbyme.setText("total money contributed by me::  " + text1);
+                enteredmoney.setText("");
             }
         });
 
@@ -252,12 +257,13 @@ public class TripActivity extends AppCompatActivity {
             photoFile = getPhotoFileUri();
             mediaUri = FileProvider.getUriForFile(TripActivity.this, "com.avanipatel9.capstone_teampurple_bonvoyage.provider", photoFile);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, mediaUri);
-
             if (intent.resolveActivity(TripActivity.this.getPackageManager()) != null) {
                 startActivityForResult(intent, REQUEST_CAMERA);
+
             }
 
-        } catch (Exception e) {
+        }
+         catch (Exception e) {
 
             try {
                 Log.e("launchCameraForImage: ", e.getMessage());

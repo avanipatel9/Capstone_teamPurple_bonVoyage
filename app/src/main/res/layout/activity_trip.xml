@@ -11,10 +11,11 @@
         android:id="@+id/enterdetail"
         android:layout_width="244dp"
         android:layout_height="62dp"
-        android:layout_marginStart="52dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Detail"
-        android:inputType="number"
+        android:inputType="text"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/entermoney" />
@@ -23,16 +24,13 @@
         android:id="@+id/destination"
         android:layout_width="141dp"
         android:layout_height="33dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
         android:text="Destination"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/moneyspent"
-        app:layout_constraintHorizontal_bias="0.314"
+        app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/moneyspent"
@@ -53,10 +51,10 @@
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="116dp"
-        android:text="submit money"
+        android:layout_marginBottom="48dp"
+        android:text="submit expense"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
@@ -64,8 +62,8 @@
         android:id="@+id/entermoney"
         android:layout_width="244dp"
         android:layout_height="62dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="enter money"
         android:inputType="number"
@@ -75,27 +73,24 @@
 
     <ListView
         android:id="@+id/mylist"
-        android:layout_width="330dp"
-        android:layout_height="156dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginEnd="64dp"
-        android:drawSelectorOnTop="false"
+        android:layout_width="400dp"
+        android:layout_height="219dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="14dp"
+        android:drawSelectorOnTop="true"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.274"
-        tools:textColor="?android:attr/colorBackground" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moneyspent"
+        tools:textColor="@color/colorPrimaryDark" />
 
     <TextView
         android:id="@+id/moneyspentbyme"
-        android:layout_width="181dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="404dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="16dp"
         android:text="Amount spent"
         android:textSize="20dp"
-        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintHorizontal_bias="0.034"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mylist" />
@@ -104,8 +99,8 @@
         android:id="@+id/addLocation"
         android:layout_width="117dp"
         android:layout_height="56dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="20dp"
         android:text="Add Location"
         app:layout_constraintStart_toEndOf="@+id/submit"
         app:layout_constraintTop_toBottomOf="@+id/enterdetail" />
@@ -115,18 +110,18 @@
         android:layout_width="181dp"
         android:layout_height="31dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="1dp"
         android:text="Amount Spent For ?"
         android:textSize="20dp"
-        app:layout_constraintStart_toEndOf="@+id/moneyspentbyme"
-        app:layout_constraintTop_toBottomOf="@+id/mylist" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moneyspentbyme" />
 
     <TextView
         android:id="@+id/locationLbl"
         android:layout_width="181dp"
         android:layout_height="31dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="8dp"
         android:text="location"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -136,11 +131,11 @@
         android:id="@+id/uploadBillPicBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="112dp"
         android:clickable="true"
         app:layout_constraintTop_toBottomOf="@+id/enterdetail"
         app:srcCompat="@drawable/ic_menu_camera"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="177dp" />
+        tools:layout_editor_absoluteX="29dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

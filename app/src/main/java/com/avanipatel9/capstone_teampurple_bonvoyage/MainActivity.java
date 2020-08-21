@@ -97,7 +97,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent intent = new Intent(MainActivity.this,SigninActivity.class);
             startActivity(intent);
             // Handle the camera action
-        } else if (id == R.id.view_trips_id) {
+        }
+        else if (id == R.id.view_trips_id)
+        {
+            Intent intent = new Intent(MainActivity.this,TripActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_slideshow) {
 
