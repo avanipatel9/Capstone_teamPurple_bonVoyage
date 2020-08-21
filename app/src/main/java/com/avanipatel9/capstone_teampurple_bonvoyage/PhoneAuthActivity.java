@@ -238,7 +238,7 @@ public class PhoneAuthActivity extends AppCompatActivity implements View.OnClick
                             System.out.println("signed inn");
                             Bundle bundle =new Bundle();
                             bundle.putString("PhNumber",phNumber);
-                            Intent intent= new Intent(PhoneAuthActivity.this,UserRegistrationActivity.class);
+                            Intent intent= new Intent(PhoneAuthActivity.this,SignupActivity.class);
                             intent.putExtras(bundle);
                             startActivity(intent);
                             // [END_EXCLUDE]
