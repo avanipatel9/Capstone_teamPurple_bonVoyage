@@ -83,7 +83,7 @@ public class TripActivity extends AppCompatActivity {
         enterdetail = findViewById(R.id.enterdetail);
 
         moneyspentbyme = findViewById(R.id.moneyspentbyme);
-        moneyspentdetail = findViewById(R.id.moneyspentdetail);
+//        moneyspentdetail = findViewById(R.id.moneyspentdetail);
         addBillPic = findViewById(R.id.uploadBillPicBtn);
 
 //        adapter=new ArrayAdapter<String>(this,
