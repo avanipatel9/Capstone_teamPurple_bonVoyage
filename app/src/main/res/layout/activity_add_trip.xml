@@ -21,8 +21,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"
-            android:layout_marginLeft="25dp"
-            android:text="Add trip Details"
+            android:layout_margin="25dp"
+            android:text="Add Trip Details"
             android:textColor="#000"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -34,6 +34,15 @@
 <!--            android:id="@+id/message"-->
 <!--            android:inputType="textPersonName"-->
 <!--            android:text="Please fill in the details" />-->
+
+<!--        <EditText-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:hint="Destination"-->
+<!--            android:background="#f3f3f3"-->
+<!--            android:paddingLeft="5dp"-->
+<!--            android:id="@+id/destination"-->
+<!--            android:layout_marginTop="30dp"/>-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -50,15 +59,6 @@
 <!--        <EditText-->
 <!--            android:layout_width="fill_parent"-->
 <!--            android:layout_height="40dp"-->
-<!--            android:hint="Destination"-->
-<!--            android:background="#f3f3f3"-->
-<!--            android:paddingLeft="5dp"-->
-<!--            android:id="@+id/destination"-->
-<!--            android:layout_marginTop="30dp"/>-->
-
-<!--        <EditText-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="40dp"-->
 <!--            android:inputType="number"-->
 <!--            android:hint="budget"-->
 <!--            android:background="#f3f3f3"-->
@@ -71,6 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:hint="Budget">
             <com.google.android.material.textfield.TextInputEditText
@@ -79,65 +80,142 @@
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="40dp"
-            android:inputType="date"
-            android:hint="Date of departure"
-            android:background="#f3f3f3"
-            android:paddingLeft="5dp"
-            android:onClick="showDatePickerDialog"
-            android:id="@+id/date_of_departure"
-            android:layout_marginTop="15dp"/>
+<!--        <EditText-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:inputType="date"-->
+<!--            android:hint="Date of departure"-->
+<!--            android:background="#f3f3f3"-->
+<!--            android:paddingLeft="5dp"-->
+<!--            android:onClick="showDatePickerDialog"-->
+<!--            android:id="@+id/date_of_departure"-->
+<!--            android:layout_marginTop="15dp"/>-->
 
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="40dp"
-            android:inputType="date"
-            android:hint="Date of return"
-            android:onClick="showDatePickerDialog"
-            android:background="#f3f3f3"
-            android:paddingLeft="5dp"
-            android:id="@+id/date_of_return"
-            android:layout_marginTop="15dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:hint="Date of departure">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/date_of_departure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:onClick="showDatePickerDialog"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="40dp"
-            android:inputType="phone"
-            android:hint="enter 1st friend's phone number (optional)"
-            android:background="#f3f3f3"
-            android:paddingLeft="5dp"
-            android:id="@+id/friend_phone_1"
-            android:layout_marginTop="15dp"/>
+<!--        <EditText-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:inputType="date"-->
+<!--            android:hint="Date of return"-->
+<!--            android:onClick="showDatePickerDialog"-->
+<!--            android:background="#f3f3f3"-->
+<!--            android:paddingLeft="5dp"-->
+<!--            android:id="@+id/date_of_return"-->
+<!--            android:layout_marginTop="15dp"/>-->
 
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="40dp"
-            android:inputType="phone"
-            android:hint="enter 2st friend's phone number (optional)"
-            android:background="#f3f3f3"
-            android:paddingLeft="5dp"
-            android:id="@+id/friend_phone_2"
-            android:layout_marginTop="15dp"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:hint="Date of return">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/date_of_return"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:onClick="showDatePickerDialog"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="40dp"
-            android:inputType="phone"
-            android:hint="enter 3st friend's phone number (optional)"
-            android:background="#f3f3f3"
-            android:paddingLeft="5dp"
-            android:id="@+id/friend_phone_3"
-            android:layout_marginTop="15dp"/>
+<!--        <EditText-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:inputType="phone"-->
+<!--            android:hint="enter 1st friend's phone number (optional)"-->
+<!--            android:background="#f3f3f3"-->
+<!--            android:paddingLeft="5dp"-->
+<!--            android:id="@+id/friend_phone_1"-->
+<!--            android:layout_marginTop="15dp"/>-->
 
-        <Button
-            android:layout_width="190dp"
-            android:layout_height="38dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:hint="Enter 1st friend's phone number (optional)">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/friend_phone_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--        <EditText-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:inputType="phone"-->
+<!--            android:hint="enter 2st friend's phone number (optional)"-->
+<!--            android:background="#f3f3f3"-->
+<!--            android:paddingLeft="5dp"-->
+<!--            android:id="@+id/friend_phone_2"-->
+<!--            android:layout_marginTop="15dp"/>-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:hint="Enter 2nd friend's phone number (optional)">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/friend_phone_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--        <EditText-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:inputType="phone"-->
+<!--            android:hint="enter 3st friend's phone number (optional)"-->
+<!--            android:background="#f3f3f3"-->
+<!--            android:paddingLeft="5dp"-->
+<!--            android:id="@+id/friend_phone_3"-->
+<!--            android:layout_marginTop="15dp"/>-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:hint="Enter 3rd friend's phone number (optional)">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/friend_phone_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:text="submit"
-            android:textColor="#000000"
+            android:text="Submit"
+            android:textColor="#fff"
             android:id="@+id/submit_button"/>
 
     </LinearLayout>
