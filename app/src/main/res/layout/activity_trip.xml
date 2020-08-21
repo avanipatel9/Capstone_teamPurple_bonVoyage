@@ -1,141 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".TripActivity"
+    android:background="@drawable/bg">
 
-    <EditText
-        android:id="@+id/enterdetail"
-        android:layout_width="244dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:hint="Detail"
-        android:inputType="text"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/entermoney" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/destination"
-        android:layout_width="141dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="16dp"
-        android:text="Destination"
-        android:textSize="20dp"
-        app:layout_constraintHorizontal_bias="0.018"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/destination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:padding="8dp"
+            android:text="Destination"
+            android:textSize="16sp"/>
 
-    <TextView
-        android:id="@+id/moneyspent"
-        android:layout_width="390dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="404dp"
-        android:text="My Total expense"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.122"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.166" />
+        <TextView
+            android:id="@+id/moneyspent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:padding="8dp"
+            android:text="My Total expense"
+            android:textSize="16dp" />
 
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:text="submit expense"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.048"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        <ListView
+            android:id="@+id/mylist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:drawSelectorOnTop="true"
+            android:textSize="20dp"
+            tools:textColor="@color/colorPrimaryDark" />
 
-    <EditText
-        android:id="@+id/entermoney"
-        android:layout_width="244dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:hint="enter money"
-        android:inputType="number"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locationLbl" />
+        <TextView
+            android:id="@+id/moneyspentbyme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="Amount spent"
+            android:textSize="16sp" />
 
-    <ListView
-        android:id="@+id/mylist"
-        android:layout_width="400dp"
-        android:layout_height="219dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="14dp"
-        android:drawSelectorOnTop="true"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/moneyspent"
-        tools:textColor="@color/colorPrimaryDark" />
+<!--        <EditText-->
+<!--            android:id="@+id/entermoney"-->
+<!--            android:layout_width="244dp"-->
+<!--            android:layout_height="62dp"-->
+<!--            android:layout_marginStart="4dp"-->
+<!--            android:layout_marginTop="28dp"-->
+<!--            android:ems="10"-->
+<!--            android:hint="enter money"-->
+<!--            android:inputType="number"-->
+<!--            android:textSize="20dp"/>-->
 
-    <TextView
-        android:id="@+id/moneyspentbyme"
-        android:layout_width="404dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="16dp"
-        android:text="Amount spent"
-        android:textSize="20dp"
-        app:layout_constraintHorizontal_bias="0.034"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mylist" />
+        <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:hint="Enter Money"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/entermoney"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:textSize="16sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/addLocation"
-        android:layout_width="117dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="20dp"
-        android:text="Add Location"
-        app:layout_constraintStart_toEndOf="@+id/submit"
-        app:layout_constraintTop_toBottomOf="@+id/enterdetail" />
 
-    <TextView
-        android:id="@+id/moneyspentdetail"
-        android:layout_width="181dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="1dp"
-        android:text="Amount Spent For ?"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/moneyspentbyme" />
 
-    <TextView
-        android:id="@+id/locationLbl"
-        android:layout_width="181dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="208dp"
-        android:layout_marginTop="8dp"
-        android:text="location"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/moneyspentbyme" />
+<!--    <EditText-->
+<!--        android:id="@+id/enterdetail"-->
+<!--        android:layout_width="244dp"-->
+<!--        android:layout_height="62dp"-->
+<!--        android:layout_marginStart="4dp"-->
+<!--        android:layout_marginTop="28dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Detail"-->
+<!--        android:inputType="text"-->
+<!--        android:textSize="20dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/entermoney" />-->
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/uploadBillPicBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
-        android:clickable="true"
-        app:layout_constraintTop_toBottomOf="@+id/enterdetail"
-        app:srcCompat="@drawable/ic_menu_camera"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="29dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Enter Expense Detail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/enterdetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:weightSum="2">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Add Location"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/uploadBillPicBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Upload Bill"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"/>
+
+
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Submit Expense" />
+
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/moneyspentdetail"-->
+<!--        android:layout_width="181dp"-->
+<!--        android:layout_height="31dp"-->
+<!--        android:layout_marginStart="12dp"-->
+<!--        android:layout_marginTop="1dp"-->
+<!--        android:text="Amount Spent For ?"-->
+<!--        android:textSize="20dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/moneyspentbyme" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/locationLbl"-->
+<!--        android:layout_width="181dp"-->
+<!--        android:layout_height="31dp"-->
+<!--        android:layout_marginStart="208dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:text="location"-->
+<!--        android:textSize="20dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/moneyspentbyme" />-->
+
+
+
+    </LinearLayout>
+
+</ScrollView>
