@@ -46,7 +46,7 @@ public class TripActivity extends AppCompatActivity {
     private Button submit,location;
     private EditText enteredmoney,enterdetail;
     private String moneybythis;
-    private FloatingActionButton addBillPic;
+    private Button addBillPic;
     Dialog dialog;
     int REQUEST_CAMERA = 100;
     File photoFile;
