@@ -43,6 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/name"
+                android:background="#f3f3f3"
                 android:textSize="16sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,6 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/email"
+                android:background="#f3f3f3"
                 android:textSize="16sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,6 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/city"
+                android:background="#f3f3f3"
                 android:textSize="16sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -89,6 +92,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/password"
                 android:inputType="textPassword"
+                android:background="#f3f3f3"
                 android:textSize="16sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,6 +109,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/confirm_password"
                 android:inputType="textPassword"
+                android:background="#f3f3f3"
                 android:textSize="16sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
