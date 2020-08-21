@@ -6,7 +6,8 @@
     android:id="@+id/scrollView1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context=".SignupActivity">
+    tools:context=".SignupActivity"
+    android:background="@drawable/bg">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -21,8 +22,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sign up"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="#000"
             android:layout_gravity="center_horizontal|center_vertical"/>
 
         <ImageView
@@ -31,59 +33,88 @@
             android:layout_marginTop="15dp"
             android:layout_gravity="center_horizontal"/>
 
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="40dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Name"
-            android:background="#f3f3f3"
-            android:paddingLeft="5dp"
-            android:id="@+id/name"
-            android:layout_marginTop="30dp"/>
+            android:layout_margin="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/name"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="40dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Email ID"
-            android:background="#f3f3f3"
-            android:paddingLeft="5dp"
-            android:id="@+id/email"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/email"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="40dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="City"
-            android:background="#f3f3f3"
-            android:paddingLeft="5dp"
-            android:id="@+id/city"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/city"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="40dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Password"
-            android:background="#f3f3f3"
-            android:paddingLeft="5dp"
-            android:inputType="textPassword"
-            android:id="@+id/password"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/password"
+                android:inputType="textPassword"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:layout_width="fill_parent"
-            android:layout_height="40dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Confirm Password"
-            android:background="#f3f3f3"
-            android:paddingLeft="5dp"
-            android:inputType="textPassword"
-            android:id="@+id/confirm_password"
-            android:layout_marginTop="15dp"/>
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/confirm_password"
+                android:inputType="textPassword"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <Button android:layout_width="190dp"
-            android:layout_height="38dp"
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:text="Submit"
-            android:textColor="#000000"
+            android:textColor="#fff"
             android:id="@+id/submit_button" />
 
     </LinearLayout>
