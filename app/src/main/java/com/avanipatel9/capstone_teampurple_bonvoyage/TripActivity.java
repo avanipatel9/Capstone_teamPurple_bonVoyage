@@ -46,7 +46,7 @@ public class TripActivity extends AppCompatActivity {
     private Button submit,location;
     private EditText enteredmoney,enterdetail;
     private String moneybythis;
-    private Button addBillPic;
+    private FloatingActionButton addBillPic;
     Dialog dialog;
     int REQUEST_CAMERA = 100;
     File photoFile;
@@ -66,6 +66,8 @@ public class TripActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1,
                 listItems);
         myListView.setAdapter(adapter);
+
+
         mDatabase = FirebaseDatabase.getInstance().getReference("trips");
         m2Database =  FirebaseDatabase.getInstance().getReference("users");
 
@@ -81,7 +83,7 @@ public class TripActivity extends AppCompatActivity {
         enterdetail = findViewById(R.id.enterdetail);
 
         moneyspentbyme = findViewById(R.id.moneyspentbyme);
-       //moneyspentdetail = findViewById(R.id.moneyspentdetail);
+//        moneyspentdetail = findViewById(R.id.moneyspentdetail);
         addBillPic = findViewById(R.id.uploadBillPicBtn);
 
 //        adapter=new ArrayAdapter<String>(this,
@@ -93,7 +95,6 @@ public class TripActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String destination = dataSnapshot.child("Destination").getValue().toString();
                 moneyspent = dataSnapshot.child("moneyspent").getValue().toString();
-
                 moneybythis = dataSnapshot.child(phonenumber).getValue().toString();
                 Destination.setText(destination);
                 System.out.print(moneyspent + "  " + moneyspentbyme);
