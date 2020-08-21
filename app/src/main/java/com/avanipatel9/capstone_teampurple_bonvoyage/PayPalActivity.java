@@ -72,16 +72,17 @@ public class PayPalActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (requestCode == PAYPAL_REQUEST_CODE){
-            if (resultCode == RESULT_OK){
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PAYPAL_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
                 PaymentConfirmation confirmation = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
-                if (confirmation != null){
+                if (confirmation != null) {
                     try {
                         String paymentDetails = confirmation.toJSONObject().toString(4);
-                        startActivity(new Intent(this,PaymentDetails.class)
-                                .putExtra("Payment Details",paymentDetails)
-                                .putExtra("Amount",amount));
-                    } catch (JSONException e){
+                        startActivity(new Intent(this, PaymentDetilsActivity.class)
+                                .putExtra("Payment Details", paymentDetails)
+                                .putExtra("Amount", amount));
+                    } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
