@@ -95,6 +95,7 @@ public class TripActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String destination = dataSnapshot.child("Destination").getValue().toString();
                 moneyspent = dataSnapshot.child("moneyspent").getValue().toString();
+
                 moneybythis = dataSnapshot.child(phonenumber).getValue().toString();
                 Destination.setText(destination);
                 System.out.print(moneyspent + "  " + moneyspentbyme);
