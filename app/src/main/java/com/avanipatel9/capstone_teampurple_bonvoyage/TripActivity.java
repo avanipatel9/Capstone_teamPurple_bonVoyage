@@ -41,12 +41,12 @@ public class TripActivity extends AppCompatActivity {
     private String tripid, budget2;
     private String phonenumber;
     private String moneyspent;
-    private TextView Budget;
+    private TextView Budget,show;
     private TextView Destination,moneyspentbyme,moneyspentdetail;
     private Button submit,location;
     private EditText enteredmoney,enterdetail;
     private String moneybythis;
-    private Button addBillPic;
+    private Button addBillPic,pay;
     Dialog dialog;
     int REQUEST_CAMERA = 100;
     File photoFile;
@@ -63,8 +63,7 @@ public class TripActivity extends AppCompatActivity {
         ListView myListView = (ListView) findViewById(R.id.mylist);
         listItems=new ArrayList<String>();
         adapter=new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1,
-                listItems);
+                android.R.layout.simple_list_item_1,listItems);
         myListView.setAdapter(adapter);
 
 
@@ -81,11 +80,11 @@ public class TripActivity extends AppCompatActivity {
         location = findViewById(R.id.addLocation);
         enteredmoney = findViewById(R.id.entermoney);
         enterdetail = findViewById(R.id.enterdetail);
-
+show = findViewById(R.id.show);
         moneyspentbyme = findViewById(R.id.moneyspentbyme);
 //        moneyspentdetail = findViewById(R.id.moneyspentdetail);
         addBillPic = findViewById(R.id.uploadBillPicBtn);
-
+        pay = findViewById(R.id.pay);
 //        adapter=new ArrayAdapter<String>(this,
 //                android.R.layout.simple_list_item_1,
 //                listItems);
@@ -157,7 +156,6 @@ public class TripActivity extends AppCompatActivity {
                                         System.out.println(dataSnapshot.child("Name").getValue()+"  " + m);
 //                                adapter.add(m);
                                         String name = (String)dataSnapshot.child("Name").getValue();
-
                                         listItems.add(name + "    "  + m);
                                         adapter.notifyDataSetChanged();
                                     }
@@ -185,7 +183,7 @@ public class TripActivity extends AppCompatActivity {
                 mDatabase.child(tripid).child(phonenumber).setValue(totalforthis);
                 mDatabase.child(tripid).child("moneyspent").setValue(total);
                 Budget.setText("total money spent in the group:: " + text);
-                moneyspentbyme.setText("total money contributed by me::  " + text1);
+                moneyspentbyme.setText("total money contributed by me:  " + text1);
                 enteredmoney.setText("");
             }
         });
@@ -209,7 +207,14 @@ public class TripActivity extends AppCompatActivity {
             }
         });
 
-
+         //open Paypal
+        pay.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TripActivity.this, PayPalActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void showchooser() {

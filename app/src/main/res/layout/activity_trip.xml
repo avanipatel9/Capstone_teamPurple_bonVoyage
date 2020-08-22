@@ -34,6 +34,17 @@
             android:text="My Total expense"
             android:textSize="16dp" />
 
+        <TextView
+            android:id="@+id/show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0E0E0E"
+            android:textSize="16dp"
+            android:text="details"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"/>
+
         <ListView
             android:id="@+id/mylist"
             android:layout_width="match_parent"
@@ -173,7 +184,11 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toBottomOf="@+id/moneyspentbyme" />-->
 
-
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Pay"
+    android:id="@+id/pay"/>
 
     </LinearLayout>
 
