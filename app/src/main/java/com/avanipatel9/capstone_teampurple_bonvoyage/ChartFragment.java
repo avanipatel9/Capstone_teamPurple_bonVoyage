@@ -1,4 +1,6 @@
 package com.avanipatel9.capstone_teampurple_bonvoyage;
 
-public class ChartFragment {
+import androidx.fragment.app.Fragment;
+
+public class ChartFragment extends Fragment {
 }
