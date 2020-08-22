@@ -13,4 +13,8 @@ public class ChartFragment extends Fragment {
     public ChartFragment()
     {
     }
+    public static ChartFragment newInstance(){
+        ChartFragment fragment= new ChartFragment();
+        return fragment;
+    }
 }
