@@ -34,5 +34,7 @@ public class ChartFragment extends Fragment {
     private void loadSummary() {
     }
     private void findViewsById() {
+        pieChart1Title=(TextView)chartView.findViewById(R.id.pieChart1Title);
+        pieChart2Title=(TextView)chartView.findViewById(R.id.pieChart2Title);
     }
 }
