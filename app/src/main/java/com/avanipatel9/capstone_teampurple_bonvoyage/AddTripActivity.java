@@ -12,7 +12,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 
@@ -25,13 +28,16 @@ public class AddTripActivity extends AppCompatActivity {
 
     private String Destination,FriendPhone1,FriendPhone2,FriendPhone3;
     private int budget;
+    private int iterator = 0;
     private String DateOfReturn, DateOfDeparture;
 
     private static final String _CHAR = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
     private static final int RANDOM_STR_LENGTH = 12;
 
     private EditText t_Destination,t_FriendPhone1,t_FriendPhone2,t_FriendPhone3,t_budget,t_DateOfReturn,t_DateOfDeparture;
-    private Button submit;
+    private Button addTripMember, submit;
+    private LinearLayout memberLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +53,32 @@ public class AddTripActivity extends AppCompatActivity {
         t_FriendPhone1 = (EditText) findViewById(R.id.friend_phone_1);
         t_FriendPhone2 = (EditText) findViewById(R.id.friend_phone_2);
         t_FriendPhone3 = (EditText) findViewById(R.id.friend_phone_3);
+
+        memberLayout = (LinearLayout) findViewById(R.id.member_layout);
+        addTripMember = (Button) findViewById(R.id.add_trip_member_button);
         submit = (Button) findViewById(R.id.submit_button);
+
+        addTripMember.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                memberLayout.setVisibility(View.VISIBLE);
+                TextInputLayout memberTextInputLayout = new TextInputLayout(AddTripActivity.this, null, R.style.Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense);
+                memberTextInputLayout.setHint("Enter " + (++iterator) + "member's phone number");
+                memberTextInputLayout.setBoxBackgroundMode(TextInputLayout.BOX_BACKGROUND_OUTLINE);
+                memberTextInputLayout.setBoxCornerRadii(5,5,5,5);
+                memberTextInputLayout.setBoxStrokeColor(getColor(R.color.colorPrimary));
+                memberTextInputLayout.setId(iterator);
+
+                LinearLayout.LayoutParams memberTILParams = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT);
+
+                TextInputEditText memberEDT = new TextInputEditText(memberTextInputLayout.getContext());
+                memberTextInputLayout.addView(memberEDT);
+                memberLayout.addView(memberTextInputLayout, memberTILParams);
+            }
+        });
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
