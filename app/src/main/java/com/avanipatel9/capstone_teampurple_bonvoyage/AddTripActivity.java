@@ -7,7 +7,9 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -66,9 +68,10 @@ public class AddTripActivity extends AppCompatActivity {
 
                 View view1 = LayoutInflater.from(AddTripActivity.this).inflate(R.layout.temp_layout,null);
                 TextInputLayout memberTextInputLayout = view1.findViewById(R.id.member_text_input_layout);
-                memberTextInputLayout.setHint("Enter " + (++iterator) + "member's phone number");
+                memberTextInputLayout.setHint("Enter " + (++iterator) + " member's phone number");
                 TextInputEditText memberEDT = view1.findViewById(R.id.member_edt);
                 memberEDT.setId(iterator);
+                Log.d("TAG", String.valueOf(memberEDT.getId()));
                 memberLayout.addView(view1);
             }
         });
