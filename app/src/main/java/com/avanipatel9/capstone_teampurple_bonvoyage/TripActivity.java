@@ -111,7 +111,8 @@ public class TripActivity extends AppCompatActivity {
                                 System.out.println(dataSnapshot.child("Name").getValue()+"  " + m);
 //                                adapter.add(m);
                                 String name = (String)dataSnapshot.child("Name").getValue();
-                                listItems.add(name + "    "  + m);
+                                listItems.add(name + "    "  +"spent"+" " + m);
+                               // listItems.add(name + "    "  + m);
                                 adapter.notifyDataSetChanged();
                                 myListView.setAdapter(adapter);
                             }
@@ -156,7 +157,8 @@ public class TripActivity extends AppCompatActivity {
                                         System.out.println(dataSnapshot.child("Name").getValue()+"  " + m);
 //                                adapter.add(m);
                                         String name = (String)dataSnapshot.child("Name").getValue();
-                                        listItems.add(name + "    "  + m);
+
+                                        listItems.add(name + "    "  +"spent"+" " + m);
                                         adapter.notifyDataSetChanged();
                                         myListView.setAdapter(adapter);
                                     }
@@ -175,7 +177,7 @@ public class TripActivity extends AppCompatActivity {
                     }
                 });
 
-
+                String expensedetail = enterdetail.getText().toString();
                 int entered = Integer.parseInt(enteredmoney.getText().toString());
                 int totalforthis = entered + Integer.parseInt(moneybythis);
                 int total = entered + Integer.parseInt(moneyspent);
