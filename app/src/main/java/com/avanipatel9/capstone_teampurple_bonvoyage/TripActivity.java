@@ -43,10 +43,10 @@ public class TripActivity extends AppCompatActivity {
     private String moneyspent;
     private TextView Budget;
     private TextView Destination,moneyspentbyme,moneyspentdetail;
-    private Button submit,location;
+    private Button submit,location,show;
     private EditText enteredmoney,enterdetail;
     private String moneybythis;
-    private FloatingActionButton addBillPic;
+    private Button addBillPic,pay;
     Dialog dialog;
     int REQUEST_CAMERA = 100;
     File photoFile;
@@ -60,11 +60,10 @@ public class TripActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip);
 
-        ListView myListView = (ListView) findViewById(R.id.mylist);
+        final ListView myListView = (ListView) findViewById(R.id.mylist);
         listItems=new ArrayList<String>();
         adapter=new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1,
-                listItems);
+                android.R.layout.simple_list_item_1,listItems);
         myListView.setAdapter(adapter);
 
 
@@ -81,11 +80,11 @@ public class TripActivity extends AppCompatActivity {
         location = findViewById(R.id.addLocation);
         enteredmoney = findViewById(R.id.entermoney);
         enterdetail = findViewById(R.id.enterdetail);
-
+         show = findViewById(R.id.show);
         moneyspentbyme = findViewById(R.id.moneyspentbyme);
 //        moneyspentdetail = findViewById(R.id.moneyspentdetail);
         addBillPic = findViewById(R.id.uploadBillPicBtn);
-
+        pay = findViewById(R.id.pay);
 //        adapter=new ArrayAdapter<String>(this,
 //                android.R.layout.simple_list_item_1,
 //                listItems);
@@ -104,7 +103,7 @@ public class TripActivity extends AppCompatActivity {
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
                     String name = ds.getKey().toString();
                     final String m = ds.getValue().toString();
-                    if(name.matches("[1-9][0-9]{9,10}")){
+                    if(name.matches("[+][1-9][0-9]{9,10}")){
 //                        System.out.println(name);
                         m2Database.child(name).addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
@@ -114,6 +113,7 @@ public class TripActivity extends AppCompatActivity {
                                 String name = (String)dataSnapshot.child("Name").getValue();
                                 listItems.add(name + "    "  + m);
                                 adapter.notifyDataSetChanged();
+                                myListView.setAdapter(adapter);
                             }
                             @Override
                             public void onCancelled(DatabaseError databaseError) {
@@ -140,7 +140,6 @@ public class TripActivity extends AppCompatActivity {
                         String destination = dataSnapshot.child("Destination").getValue().toString();
                         moneyspent = dataSnapshot.child("moneyspent").getValue().toString();
                         moneybythis = dataSnapshot.child(phonenumber).getValue().toString();
-
                         Destination.setText(destination);
                         Budget.setText("total money spent in the group:: " +moneyspent);
                         moneyspentbyme.setText("total money contributed by me::  " + moneybythis);
@@ -149,7 +148,7 @@ public class TripActivity extends AppCompatActivity {
                         for(DataSnapshot ds : dataSnapshot.getChildren()) {
                             String name = ds.getKey().toString();
                             final String m = ds.getValue().toString();
-                            if(name.matches("[1-9][0-9]{9,10}")){
+                            if(name.matches("[+][1-9][0-9]{9,10}")){
 //                        System.out.println(name);
                                 m2Database.child(name).addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
@@ -157,9 +156,9 @@ public class TripActivity extends AppCompatActivity {
                                         System.out.println(dataSnapshot.child("Name").getValue()+"  " + m);
 //                                adapter.add(m);
                                         String name = (String)dataSnapshot.child("Name").getValue();
-
                                         listItems.add(name + "    "  + m);
                                         adapter.notifyDataSetChanged();
+                                        myListView.setAdapter(adapter);
                                     }
                                     @Override
                                     public void onCancelled(DatabaseError databaseError) {
@@ -185,7 +184,7 @@ public class TripActivity extends AppCompatActivity {
                 mDatabase.child(tripid).child(phonenumber).setValue(totalforthis);
                 mDatabase.child(tripid).child("moneyspent").setValue(total);
                 Budget.setText("total money spent in the group:: " + text);
-                moneyspentbyme.setText("total money contributed by me::  " + text1);
+                moneyspentbyme.setText("total money contributed by me:  " + text1);
                 enteredmoney.setText("");
             }
         });
@@ -206,6 +205,15 @@ public class TripActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showchooser();
+            }
+        });
+
+         //open Paypal
+        pay.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TripActivity.this, PayPalActivity.class);
+                startActivity(intent);
             }
         });
 

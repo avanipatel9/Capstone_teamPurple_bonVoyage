@@ -29,7 +29,6 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         welcomeMessage = (TextView) findViewById(R.id.welcome_message);
         //welcomeMessage.setText("hello welcome to the app, you have made an account with us ");
         GlobalVariables a = (GlobalVariables)getApplication();
@@ -40,20 +39,23 @@ public class HomeActivity extends AppCompatActivity {
         logout = (Button) findViewById(R.id.logout);
         viewTrip = (Button) findViewById(R.id.view_trip);
 
-        myRef.child(phNumber).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                System.out.println( "Value is: " + dataSnapshot.child("City").getValue());
-                String name = dataSnapshot.child("Name").getValue().toString();
-                welcomeMessage.setText("welcome " + name + "! click 'Add Trip' to add a new trip");
-            }
+        if(phNumber!=null) {
+            myRef.child(phNumber).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                    System.out.println("Value is: " + dataSnapshot.child("City").getValue());
+                    String name = dataSnapshot.child("Name").getValue().toString();
+                    welcomeMessage.setText("welcome " + name + "! click 'Add Trip' to add a new trip");
 
-            }
-        });
+                }
 
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
         addTrip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,26 +76,28 @@ public class HomeActivity extends AppCompatActivity {
         viewTrip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myRef.child(phNumber).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        String trip_id = dataSnapshot.child("Trips").getValue().toString();
-                        if(trip_id.matches(" ")){
-                            Toast.makeText(getApplicationContext(), "No trips has been created",
-                                    Toast.LENGTH_LONG).show();
+                if (phNumber != null)
+                {
+                    myRef.child(phNumber).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            String trip_id = dataSnapshot.child("Trips").getValue().toString();
+                            if (trip_id.matches(" ")) {
+                                Toast.makeText(getApplicationContext(), "No trips has been created",
+                                        Toast.LENGTH_LONG).show();
+                            } else {
+                                GlobalVariables a = (GlobalVariables) getApplication();
+                                a.setTripid(trip_id);
+                                startActivity(new Intent(HomeActivity.this, TripActivity.class));
+                            }
                         }
-                        else{
-                            GlobalVariables a = (GlobalVariables)getApplication();
-                            a.setTripid(trip_id);
-                            startActivity(new Intent(HomeActivity.this,TripActivity.class));
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
                         }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
+                    });
+            }
             }
         });
     }
