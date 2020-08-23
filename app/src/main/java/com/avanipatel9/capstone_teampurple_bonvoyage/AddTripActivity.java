@@ -8,6 +8,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -62,20 +63,13 @@ public class AddTripActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 memberLayout.setVisibility(View.VISIBLE);
-                TextInputLayout memberTextInputLayout = new TextInputLayout(AddTripActivity.this, null, R.style.Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense);
+
+                View view1 = LayoutInflater.from(AddTripActivity.this).inflate(R.layout.temp_layout,null);
+                TextInputLayout memberTextInputLayout = view1.findViewById(R.id.member_text_input_layout);
                 memberTextInputLayout.setHint("Enter " + (++iterator) + "member's phone number");
-                memberTextInputLayout.setBoxBackgroundMode(TextInputLayout.BOX_BACKGROUND_OUTLINE);
-                memberTextInputLayout.setBoxCornerRadii(5,5,5,5);
-                memberTextInputLayout.setBoxStrokeColor(getColor(R.color.colorPrimary));
-                memberTextInputLayout.setId(iterator);
-
-                LinearLayout.LayoutParams memberTILParams = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT);
-
-                TextInputEditText memberEDT = new TextInputEditText(memberTextInputLayout.getContext());
-                memberTextInputLayout.addView(memberEDT);
-                memberLayout.addView(memberTextInputLayout, memberTILParams);
+                TextInputEditText memberEDT = view1.findViewById(R.id.member_edt);
+                memberEDT.setId(iterator);
+                memberLayout.addView(view1);
             }
         });
 
