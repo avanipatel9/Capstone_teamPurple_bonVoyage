@@ -9,6 +9,7 @@
 
 
     <LinearLayout
+        android:id="@+id/my_layout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_marginLeft="16dp"
@@ -17,6 +18,10 @@
         android:layout_marginBottom="30dp"
         android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,23 +31,6 @@
             android:textColor="#000"
             android:textSize="18sp"
             android:textStyle="bold" />
-
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:ems="10"-->
-<!--            android:id="@+id/message"-->
-<!--            android:inputType="textPersonName"-->
-<!--            android:text="Please fill in the details" />-->
-
-<!--        <EditText-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:hint="Destination"-->
-<!--            android:background="#f3f3f3"-->
-<!--            android:paddingLeft="5dp"-->
-<!--            android:id="@+id/destination"-->
-<!--            android:layout_marginTop="30dp"/>-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -55,16 +43,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
-
-<!--        <EditText-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:inputType="number"-->
-<!--            android:hint="budget"-->
-<!--            android:background="#f3f3f3"-->
-<!--            android:paddingLeft="5dp"-->
-<!--            android:id="@+id/budget"-->
-<!--            android:layout_marginTop="15dp"/>-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -79,17 +57,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
-
-<!--        <EditText-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:inputType="date"-->
-<!--            android:hint="Date of departure"-->
-<!--            android:background="#f3f3f3"-->
-<!--            android:paddingLeft="5dp"-->
-<!--            android:onClick="showDatePickerDialog"-->
-<!--            android:id="@+id/date_of_departure"-->
-<!--            android:layout_marginTop="15dp"/>-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -107,17 +74,6 @@
                 android:onClick="showDatePickerDialog"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--        <EditText-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:inputType="date"-->
-<!--            android:hint="Date of return"-->
-<!--            android:onClick="showDatePickerDialog"-->
-<!--            android:background="#f3f3f3"-->
-<!--            android:paddingLeft="5dp"-->
-<!--            android:id="@+id/date_of_return"-->
-<!--            android:layout_marginTop="15dp"/>-->
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -134,15 +90,20 @@
                 android:onClick="showDatePickerDialog"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--        <EditText-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:inputType="phone"-->
-<!--            android:hint="enter 1st friend's phone number (optional)"-->
-<!--            android:background="#f3f3f3"-->
-<!--            android:paddingLeft="5dp"-->
-<!--            android:id="@+id/friend_phone_1"-->
-<!--            android:layout_marginTop="15dp"/>-->
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/member_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+        </LinearLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -159,16 +120,6 @@
                 android:inputType="phone"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--        <EditText-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:inputType="phone"-->
-<!--            android:hint="enter 2st friend's phone number (optional)"-->
-<!--            android:background="#f3f3f3"-->
-<!--            android:paddingLeft="5dp"-->
-<!--            android:id="@+id/friend_phone_2"-->
-<!--            android:layout_marginTop="15dp"/>-->
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -183,16 +134,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="phone"/>
         </com.google.android.material.textfield.TextInputLayout>
-
-<!--        <EditText-->
-<!--            android:layout_width="fill_parent"-->
-<!--            android:layout_height="40dp"-->
-<!--            android:inputType="phone"-->
-<!--            android:hint="enter 3st friend's phone number (optional)"-->
-<!--            android:background="#f3f3f3"-->
-<!--            android:paddingLeft="5dp"-->
-<!--            android:id="@+id/friend_phone_3"-->
-<!--            android:layout_marginTop="15dp"/>-->
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -209,14 +150,35 @@
                 android:inputType="phone"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:text="Submit"
-            android:textColor="#fff"
-            android:id="@+id/submit_button"/>
+            android:weightSum="2"
+            android:orientation="horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="8dp"
+                android:text="Add Member"
+                android:textColor="#fff"
+                android:id="@+id/add_trip_member_button"
+                android:layout_weight="1"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="8dp"
+                android:text="Submit"
+                android:textColor="#fff"
+                android:id="@+id/submit_button"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
