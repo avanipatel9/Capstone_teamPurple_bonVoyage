@@ -6,7 +6,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     tools:context=".TripActivity"
-    android:background="@drawable/bg">
+    android:background="@drawable/bg"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -106,12 +107,13 @@
             android:layout_marginBottom="16dp"
             android:hint="Enter Expense Detail"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/enterdetail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:textSize="16sp"/>
+                android:inputType="text"
+                android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
