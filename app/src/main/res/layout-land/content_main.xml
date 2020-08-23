@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.avanipatel9.capstone_teampurple_bonvoyage.MainActivity"
+    tools:showIn="@layout/app_bar_main"
+    android:gravity="center">
+
+
+<!--    <com.google.android.material.textview.MaterialTextView-->
+<!--        android:id="@+id/location_id"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="16dp"-->
+<!--        android:text="Hello there, Welcome to the Bon Voyage splitter!"-->
+<!--        android:textAppearance="@style/TextAppearance.AppCompat.Display1"-->
+<!--        android:textStyle="italic"-->
+<!--        android:gravity="center_horizontal"/>-->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New User?"
+            android:textColor="#000"
+            android:textSize="20sp" />
+        <!--android:textColor="#ffffff"-->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/registerButton_id"
+            android:layout_width="229dp"
+            android:layout_height="wrap_content"
+            android:onClick="onClickRegister"
+            android:text="Register" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:gravity="center">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Have an account?"
+            android:textColor="#000"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signinButton_id"
+            android:layout_width="229dp"
+            android:layout_height="wrap_content"
+            android:onClick="onClickSignin"
+            android:text="Sign in" />
+    </LinearLayout>
+
+
+</LinearLayout>
