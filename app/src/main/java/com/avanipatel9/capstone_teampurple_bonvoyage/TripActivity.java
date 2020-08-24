@@ -180,12 +180,13 @@ public class TripActivity extends AppCompatActivity {
                             if (tt > individualShare)
                             {
                                  owe = tt - individualShare;
-                                show.setText("Your have to receive  : " + owe);
+
+                                show.setText("Your have to receive  : " + String.format("%.02f", owe));
                             }
                             else
                             {
-                                owe =  individualShare -tt;
-                                show.setText("Your owe  : " + owe);
+                                owe =  individualShare - tt;
+                                show.setText("Your owe  : " + String.format("%.02f", owe));
                             }
                         }
                     }
