@@ -9,6 +9,6 @@
 #                                         Supervisor
 ##                                       Mohammad Kiani
 ## App Logo
-<img src = "https://github.com/avanipatel9/Capstone_teamPurple_bonVoyage/blob/master/logo.png">
+<img src = "https://github.com/avanipatel9/Capstone_teamPurple_bonVoyage/blob/master/logo.png" width = "200" height = "200">
 ## App Features
 1.Create UserLogin 2.Create a trip
