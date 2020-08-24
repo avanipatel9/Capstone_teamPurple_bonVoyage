@@ -14,9 +14,5 @@ ______________________________________________________________________________
 ##                                       Mohammad Kiani
 ________________________________________________________________________________
 ## App Features
-1.Create UserLogin
-Ask user to register or login
-Login using username /password
-Register by name,password,mobile number
-2.Create a trip
-Create trip by entering location name
+1.Create UserLogin -> Ask user to register or login -> Login using username /password -> Register by name,password,mobile number
+2.Create a trip -> Create trip by entering location name
