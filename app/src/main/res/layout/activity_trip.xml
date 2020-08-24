@@ -182,7 +182,7 @@
     android:text="Pay"
     android:id="@+id/pay"/>
 
-        <Button
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Show Details"

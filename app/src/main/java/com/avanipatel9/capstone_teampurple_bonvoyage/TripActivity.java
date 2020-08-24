@@ -41,9 +41,9 @@ public class TripActivity extends AppCompatActivity {
     private String tripid, budget2;
     private String phonenumber;
     private String moneyspent;
-    private TextView Budget;
+    private TextView Budget,show;
     private TextView Destination,moneyspentbyme,moneyspentdetail;
-    private Button submit,location,show;
+    private Button submit,location;
     private EditText enteredmoney,enterdetail;
     private String moneybythis;
     private Button addBillPic,pay;
@@ -54,6 +54,11 @@ public class TripActivity extends AppCompatActivity {
     private ArrayAdapter adapter;
     ArrayList<String> listItems;
     int SELECT_IMAGES = 200;
+
+    //cp
+    int totalusers =0;
+    int t,tt;
+    float share;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,6 +155,8 @@ public class TripActivity extends AppCompatActivity {
                             String name = ds.getKey().toString();
                             final String m = ds.getValue().toString();
                             if(name.matches("[+][1-9][0-9]{9,10}")){
+
+                                totalusers = totalusers+ 1; //cp
 //                        System.out.println(name);
                                 m2Database.child(name).addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
@@ -168,6 +175,18 @@ public class TripActivity extends AppCompatActivity {
                                     }
                                 });
                             }
+                            float individualShare = Expense(totalusers,t); //cp
+                            float owe ;
+                            if (tt > individualShare)
+                            {
+                                 owe = tt - individualShare;
+                                show.setText("Your have to receive  : " + owe);
+                            }
+                            else
+                            {
+                                owe =  individualShare -tt;
+                                show.setText("Your owe  : " + owe);
+                            }
                         }
                     }
 
@@ -180,7 +199,9 @@ public class TripActivity extends AppCompatActivity {
                 String expensedetail = enterdetail.getText().toString();
                 int entered = Integer.parseInt(enteredmoney.getText().toString());
                 int totalforthis = entered + Integer.parseInt(moneybythis);
+                tt= totalforthis;
                 int total = entered + Integer.parseInt(moneyspent);
+                t= total;
                 String text = String.valueOf(total);
                 String text1 = String.valueOf(totalforthis);
                 mDatabase.child(tripid).child(phonenumber).setValue(totalforthis);
@@ -309,5 +330,12 @@ public class TripActivity extends AppCompatActivity {
         File file = new File(mediaStorageDir.getPath() + File.separator + System.currentTimeMillis() + ".jpg");
 
         return file;
+    }
+
+    public   float Expense(int totalUser, float total)
+    {
+        return  share = total/totalUser;
+
+
     }
 }
