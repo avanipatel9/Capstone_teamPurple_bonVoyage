@@ -21,7 +21,8 @@
             android:layout_margin="16dp"
             android:padding="8dp"
             android:text="Destination"
-            android:textSize="16sp"/>
+            android:textColor="#0C0C0C"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/moneyspent"
