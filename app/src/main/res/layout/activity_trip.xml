@@ -83,7 +83,14 @@
                         android:textSize="16sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:padding="8dp"
+            android:text="Your Expense Details"
+            android:id="@+id/show"
+            android:textSize="16sp"/>
 
 <!--    <EditText-->
 <!--        android:id="@+id/enterdetail"-->
@@ -98,7 +105,7 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toBottomOf="@+id/entermoney" />-->
 
-        <com.google.android.material.textfield.TextInputLayout
+        <!--<com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -113,7 +120,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:textSize="16sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>-->
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -181,11 +189,7 @@
     android:text="Pay"
     android:id="@+id/pay"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Show Details"
-            android:id="@+id/show"/>
+
 
     </LinearLayout>
 
