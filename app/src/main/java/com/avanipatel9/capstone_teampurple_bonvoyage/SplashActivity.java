@@ -2,6 +2,7 @@ package com.avanipatel9.capstone_teampurple_bonvoyage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -13,6 +14,11 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         int secondsDelayed=1;
-        new Handler().postDelayed()
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(SplashActivity));
+            }
+        })
     }
 }
