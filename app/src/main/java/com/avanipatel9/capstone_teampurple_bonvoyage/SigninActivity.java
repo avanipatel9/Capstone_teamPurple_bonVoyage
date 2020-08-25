@@ -33,7 +33,7 @@ public class SigninActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signin);
         t_phoneNumber = (EditText) findViewById(R.id.phone_number);
         t_password =(EditText) findViewById(R.id.login_password);
-        message = (TextView) findViewById(R.id.message);
+        message =  findViewById(R.id.message);
         submit = (Button) findViewById(R.id.submit_button);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

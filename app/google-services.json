@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "604817959664",
+    "firebase_url": "https://my-project-capst-1597440609635.firebaseio.com",
+    "project_id": "my-project-capst-1597440609635",
+    "storage_bucket": "my-project-capst-1597440609635.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:604817959664:android:d8d77423f371ae8acef035",
+        "android_client_info": {
+          "package_name": "com.avanipatel9.capstone_teampurple_bonvoyage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "604817959664-bsftof6gm0neujoiovgtceik1fto21f8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHxKTkKqNPjCZirmI-g3IiYmbXvN8-euM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "604817959664-bsftof6gm0neujoiovgtceik1fto21f8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

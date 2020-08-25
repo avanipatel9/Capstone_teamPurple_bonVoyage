@@ -7,13 +7,18 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
-import android.support.v4.*;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 
@@ -26,13 +31,16 @@ public class AddTripActivity extends AppCompatActivity {
 
     private String Destination,FriendPhone1,FriendPhone2,FriendPhone3;
     private int budget;
+    private int iterator = 0;
     private String DateOfReturn, DateOfDeparture;
 
     private static final String _CHAR = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
     private static final int RANDOM_STR_LENGTH = 12;
 
     private EditText t_Destination,t_FriendPhone1,t_FriendPhone2,t_FriendPhone3,t_budget,t_DateOfReturn,t_DateOfDeparture;
-    private Button submit;
+    private Button addTripMember, submit;
+    private LinearLayout memberLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +56,26 @@ public class AddTripActivity extends AppCompatActivity {
         t_FriendPhone1 = (EditText) findViewById(R.id.friend_phone_1);
         t_FriendPhone2 = (EditText) findViewById(R.id.friend_phone_2);
         t_FriendPhone3 = (EditText) findViewById(R.id.friend_phone_3);
+
+        memberLayout = (LinearLayout) findViewById(R.id.member_layout);
+        addTripMember = (Button) findViewById(R.id.add_trip_member_button);
         submit = (Button) findViewById(R.id.submit_button);
+
+        addTripMember.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                memberLayout.setVisibility(View.VISIBLE);
+
+                View view1 = LayoutInflater.from(AddTripActivity.this).inflate(R.layout.temp_layout,null);
+                TextInputLayout memberTextInputLayout = view1.findViewById(R.id.member_text_input_layout);
+                memberTextInputLayout.setHint("Enter " + (++iterator) + " member's phone number");
+                TextInputEditText memberEDT = view1.findViewById(R.id.member_edt);
+                memberEDT.setId(iterator);
+                Log.d("TAG", String.valueOf(memberEDT.getId()));
+                memberLayout.addView(view1);
+            }
+        });
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
