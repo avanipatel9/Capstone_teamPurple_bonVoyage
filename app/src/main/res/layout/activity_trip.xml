@@ -186,7 +186,7 @@
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Pay"
+    android:text="Pay you dues"
     android:id="@+id/pay"/>
 
 
