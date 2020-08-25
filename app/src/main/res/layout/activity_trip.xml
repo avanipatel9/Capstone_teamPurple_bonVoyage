@@ -128,7 +128,7 @@
                 android:id="@+id/addLocation"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Add Location"
+                android:text="Explore on map"
                 android:layout_weight="1"
                 android:layout_marginEnd="8dp"/>
 
