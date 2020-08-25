@@ -44,7 +44,7 @@ public class TripActivity extends AppCompatActivity {
     private TextView Budget,show;
     private TextView Destination,moneyspentbyme,moneyspentdetail;
     private Button submit,location;
-    private EditText enteredmoney,enterdetail;
+    private EditText enteredmoney;
     private String moneybythis;
     private Button addBillPic,pay;
     Dialog dialog;
@@ -84,7 +84,7 @@ public class TripActivity extends AppCompatActivity {
         submit = findViewById(R.id.submit);
         location = findViewById(R.id.addLocation);
         enteredmoney = findViewById(R.id.entermoney);
-        enterdetail = findViewById(R.id.enterdetail);
+        //enterdetail = findViewById(R.id.enterdetail);
          show = findViewById(R.id.show);
         moneyspentbyme = findViewById(R.id.moneyspentbyme);
 //        moneyspentdetail = findViewById(R.id.moneyspentdetail);
@@ -197,7 +197,7 @@ public class TripActivity extends AppCompatActivity {
                     }
                 });
 
-                String expensedetail = enterdetail.getText().toString();
+               // String expensedetail = enterdetail.getText().toString();
                 int entered = Integer.parseInt(enteredmoney.getText().toString());
                 int totalforthis = entered + Integer.parseInt(moneybythis);
                 tt= totalforthis;

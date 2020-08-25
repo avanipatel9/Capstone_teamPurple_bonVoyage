@@ -37,7 +37,13 @@ public class AddTripActivity extends AppCompatActivity {
     private static final String _CHAR = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
     private static final int RANDOM_STR_LENGTH = 12;
 
-    private EditText t_Destination,t_FriendPhone1,t_FriendPhone2,t_FriendPhone3,t_budget,t_DateOfReturn,t_DateOfDeparture;
+    private EditText t_Destination;
+    private EditText t_FriendPhone1;
+    private EditText t_FriendPhone2;
+    private EditText t_FriendPhone3;
+    private EditText t_budget;
+    private static EditText t_DateOfReturn;
+    private static EditText t_DateOfDeparture;
     private Button addTripMember, submit;
     private LinearLayout memberLayout;
 
@@ -159,10 +165,19 @@ public class AddTripActivity extends AppCompatActivity {
         }
         public void onDateSet(DatePicker view, int year, int month, int day) {
             // Do something with the date chosen by the user
+            t_DateOfDeparture.setText(month + "/" + (day + 1) + "/" + year);
         }
+
     }
     public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();
         newFragment.show(getFragmentManager(), "datePicker");
     }
+
+
+    public void showDatePickerReturnDialog(View v) {
+        DialogFragment newFragment = new DatePickerFragment();
+        newFragment.show(getFragmentManager(), "datePicker");
+    }
+
 }
