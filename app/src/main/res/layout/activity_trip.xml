@@ -22,7 +22,8 @@
             android:padding="8dp"
             android:text="Destination"
             android:textColor="#0C0C0C"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/moneyspent"
@@ -34,7 +35,8 @@
             android:padding="8dp"
             android:text="My Total expense"
             android:textColor="#070707"
-            android:textSize="16dp" />
+            android:textSize="16dp"
+            android:textStyle="bold"/>
 
 
         <ListView
@@ -46,7 +48,8 @@
             android:layout_marginBottom="16dp"
             android:drawSelectorOnTop="false"
             android:textSize="20dp"
-            tools:textColor="@color/colorPrimaryDark" />
+            android:textStyle="bold"
+            tools:textColor="#7B188C" />
 
         <TextView
             android:id="@+id/moneyspentbyme"
@@ -57,7 +60,8 @@
             android:layout_marginBottom="16dp"
             android:text="Amount spent"
             android:textColor="#090909"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold"/>
 
 <!--        <EditText-->
 <!--            android:id="@+id/entermoney"-->
@@ -83,7 +87,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -93,6 +98,7 @@
             android:padding="8dp"
             android:text="Your Expense Details"
             android:id="@+id/show"
+            android:textStyle="bold"
             android:textSize="16sp"/>
 
 <!--    <EditText-->
