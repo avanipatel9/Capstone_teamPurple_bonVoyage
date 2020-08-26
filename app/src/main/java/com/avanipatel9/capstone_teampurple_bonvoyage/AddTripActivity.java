@@ -149,8 +149,11 @@ public class AddTripActivity extends AppCompatActivity {
         }
         return randStr.toString();
     }
+
+
+
     public static class DatePickerFragment extends DialogFragment
-            implements DatePickerDialog.OnDateSetListener {
+            implements DatePickerDialog.OnDateSetListener  {
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -165,19 +168,34 @@ public class AddTripActivity extends AppCompatActivity {
         }
         public void onDateSet(DatePicker view, int year, int month, int day) {
             // Do something with the date chosen by the user
-            t_DateOfDeparture.setText(month + "/" + (day + 1) + "/" + year);
-        }
+             String tag = this.getTag();
+              if (tag.equals("dateDepartPicker"))
+
+              {
+                  t_DateOfDeparture.setText(month + "/" + (day + 1) + "/" + year);
+              }
+
+                      else if (tag.equals("dateReturnPicker"))
+                      {
+                  t_DateOfReturn.setText(month + "/" + (day + 1) + "/" + year);
+              }
+
+                   }
+
+
 
     }
     public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getFragmentManager(), "datePicker");
+        switch(v.getId())
+        {
+            case  R.id.date_of_departure:
+                  newFragment.show(getFragmentManager(), "dateDepartPicker");
+                  break;
+          case R.id.date_of_return:
+              newFragment.show(getFragmentManager(), "dateReturnPicker");
+              break;
+        }
     }
-
-
-    public void showDatePickerReturnDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getFragmentManager(), "datePicker");
-    }
-
 }
+
