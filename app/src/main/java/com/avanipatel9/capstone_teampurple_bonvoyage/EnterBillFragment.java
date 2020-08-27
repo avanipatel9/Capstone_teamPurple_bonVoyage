@@ -1,4 +1,6 @@
 package com.avanipatel9.capstone_teampurple_bonvoyage;
 
-public class EnterBillFragment  {
+import androidx.fragment.app.Fragment;
+
+public class EnterBillFragment extends Fragment {
 }
