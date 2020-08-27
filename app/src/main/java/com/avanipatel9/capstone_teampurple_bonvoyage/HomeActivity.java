@@ -46,7 +46,7 @@ public class HomeActivity extends AppCompatActivity {
 
                     System.out.println("Value is: " + dataSnapshot.child("City").getValue());
                     String name = dataSnapshot.child("Name").getValue().toString();
-                    welcomeMessage.setText("welcome " + name + "! click 'Add Trip' to add a new trip");
+                    welcomeMessage.setText("Welcome " + name + "! click 'Add Trip' to add a new trip");
 
                 }
 
