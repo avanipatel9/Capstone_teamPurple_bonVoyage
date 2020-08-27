@@ -21,11 +21,12 @@ public class EnterBillFragment extends Fragment implements View.OnClickListener,
     private Button addBillButton;
     private ArrayList<String> checkedEmails;
     private View view;
-    //private ArrayList<UsersDataModel> friendsDataModels;
+    private ArrayList<UsersDataModel> friendsDataModels;
     //private UsersListViewAdapter adapter;
     private String itemName="", itemCost="";
     private HashMap<String,Double> capturedItems;
     private Object HashMap;
+    private Object String;
 
     public EnterBillFragment(){
 
@@ -50,7 +51,10 @@ public class EnterBillFragment extends Fragment implements View.OnClickListener,
     private void setUpListView() {
         billTitle.setText(itemName);
         billAmount.setText(itemCost);
-
+        checkedEmails=new ArrayList<>();
+        friendsDataModels=new ArrayList<>();
+        friendsListView.setAdapter(adapter);
+        friendsListView.
     }
 
     @Override
