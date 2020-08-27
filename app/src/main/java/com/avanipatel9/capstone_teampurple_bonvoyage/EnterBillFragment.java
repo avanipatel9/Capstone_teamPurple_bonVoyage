@@ -36,6 +36,12 @@ public class EnterBillFragment extends Fragment implements View.OnClickListener,
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         view =inflater.inflate(R.layout.fragment_enter_bill,container,false);
+        Bundle args=this.getArguments();
+        if (args!=null){
+            itemName=args.getString("itemName");
+            itemCost=args.getString("itemCost");
+        }
+
     }
     @Override
     public void onClick(View v) {
