@@ -157,22 +157,15 @@
                 android:layout_height="wrap_content"
                 android:text="Upload Bill"
                 android:layout_weight="1"
-                android:layout_marginStart="8dp"/>
+                android:layout_marginStart="8dp"
+                android:visibility="invisible"/>
 
 
 
         </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/submit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Submit Expense" />
 
-
-
-<!--    <TextView-->
+        <!--    <TextView-->
 <!--        android:id="@+id/moneyspentdetail"-->
 <!--        android:layout_width="181dp"-->
 <!--        android:layout_height="31dp"-->
@@ -194,12 +187,18 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toBottomOf="@+id/moneyspentbyme" />-->
 
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Pay you dues"
-    android:id="@+id/pay"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Submit Expense" />
 
+        <Button
+            android:id="@+id/pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pay you dues" />
 
 
     </LinearLayout>
