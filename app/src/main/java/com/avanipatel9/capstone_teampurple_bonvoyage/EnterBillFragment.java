@@ -1,6 +1,9 @@
 package com.avanipatel9.capstone_teampurple_bonvoyage;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +34,9 @@ public class EnterBillFragment extends Fragment implements View.OnClickListener,
         return fragment;
     }
 
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        view =inflater.inflate(R.layout.fragment_enter_bill,container,false);
+    }
     @Override
     public void onClick(View v) {
 
