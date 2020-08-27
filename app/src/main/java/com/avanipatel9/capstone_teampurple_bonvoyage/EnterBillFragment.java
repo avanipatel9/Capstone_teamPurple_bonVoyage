@@ -8,7 +8,6 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import androidx.fragment.app.Fragment;
 
@@ -28,7 +27,8 @@ public class EnterBillFragment extends Fragment implements View.OnClickListener,
 
     }
     public static EnterBillFragment newInstance(){
-
+        EnterBillFragment fragment=new EnterBillFragment();
+        return fragment;
     }
 
     @Override
