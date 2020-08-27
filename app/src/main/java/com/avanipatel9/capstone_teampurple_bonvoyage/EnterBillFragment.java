@@ -27,6 +27,9 @@ public class EnterBillFragment extends Fragment implements View.OnClickListener,
     public EnterBillFragment(){
 
     }
+    public static EnterBillFragment newInstance(){
+
+    }
 
     @Override
     public void onClick(View v) {
