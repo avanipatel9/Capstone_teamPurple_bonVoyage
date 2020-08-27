@@ -49,6 +49,7 @@ public class EnterBillFragment extends Fragment implements View.OnClickListener,
 
     private void setUpListView() {
         billTitle.setText(itemName);
+        billAmount.setText(itemCost);
 
     }
 
