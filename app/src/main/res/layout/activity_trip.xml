@@ -46,10 +46,12 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
+            android:background="#909FF3"
             android:drawSelectorOnTop="false"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            tools:textColor="#7B188C" />
+            android:textAlignment="gravity"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            tools:textColor="#0B0B0B" />
 
         <TextView
             android:id="@+id/moneyspentbyme"
