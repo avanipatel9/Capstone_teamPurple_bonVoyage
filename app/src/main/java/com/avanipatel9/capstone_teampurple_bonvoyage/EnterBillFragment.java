@@ -24,6 +24,10 @@ public class EnterBillFragment extends Fragment implements View.OnClickListener,
     private String itemName="", itemCost="";
     private HashMap<String,Double> capturedItems;
 
+    public EnterBillFragment(){
+
+    }
+
     @Override
     public void onClick(View v) {
 
