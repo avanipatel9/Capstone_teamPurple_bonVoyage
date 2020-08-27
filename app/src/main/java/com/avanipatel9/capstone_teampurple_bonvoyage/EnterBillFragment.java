@@ -16,4 +16,13 @@ public class EnterBillFragment extends Fragment implements View.OnClickListener,
     private ListView friendsListView;
     private Button addBillButton;
 
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    }
 }
