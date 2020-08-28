@@ -257,7 +257,7 @@ public class TripActivity extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.action_settings:
-                Intent signOut = new Intent(getApplicationContext(), MainActivity.class);
+                Intent signOut = new Intent(getApplicationContext(), SigninActivity.class);
                 startActivity(signOut);
                 finish();
                 break;
