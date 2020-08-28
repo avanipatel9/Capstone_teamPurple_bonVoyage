@@ -5,7 +5,7 @@
     android:id="@+id/scrollView1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    >
+    android:background="@drawable/bg">
 
 
     <LinearLayout android:layout_width="fill_parent"
@@ -14,18 +14,20 @@
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="30dp"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
 
 
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_gravity="center_horizontal|center_vertical"
             android:text="Sign up"
+            android:fontFamily="cursive"
             android:layout_marginLeft="25dp"
-            android:textSize="18sp"
-            android:textStyle="bold"
-
-            android:layout_gravity="center_horizontal|center_vertical"/>
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="50sp"
+            android:textStyle="bold"/>
 
         <ImageView android:layout_width="60dp"
             android:layout_height="60dp"
@@ -39,9 +41,11 @@
             android:textSize="20dp"
             android:id="@+id/message"
             android:inputType="textPersonName"
-            android:text="Please fill in the details" />
+            android:text="Please fill in the details"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
 
-        <EditText android:layout_width="fill_parent"
+<!--        <EditText android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:hint="name"
             android:background="#f3f3f3"
@@ -77,14 +81,99 @@
             android:paddingLeft="5dp"
             android:inputType="textPassword"
             android:id="@+id/confirm_password"
-            android:layout_marginTop="15dp"/>
-        <Button android:layout_width="190dp"
+            android:layout_marginTop="15dp"/>-->
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:layout_margin="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/name"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email ID"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/email"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="City"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/city"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/password"
+                android:inputType="textPassword"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/confirm_password"
+                android:inputType="textPassword"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="Submit"
+            android:textColor="#fff"
+            android:id="@+id/submit_button" />
+        <!--<Button android:layout_width="190dp"
             android:layout_height="38dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:text="submit"
             android:textColor="#000000"
-            android:id="@+id/submit_button" />
+            android:id="@+id/submit_button" />-->
 
     </LinearLayout>
 

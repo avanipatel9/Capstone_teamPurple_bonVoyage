@@ -18,13 +18,13 @@
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/photos_background_stroke"
+            android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
             android:gravity="center">
 
             <ImageView
                 android:layout_width="54dp"
                 android:layout_height="40dp"
-                android:src="@drawable/googlemap"></ImageView>
+                android:src="@drawable/googlemap" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
                 android:layout_marginRight="10dp"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
-                android:text="Expense Location"
+                android:text="Explore Location"
                 android:textColor="#0E0E0E"
                 android:textSize="20sp" />
         </LinearLayout>

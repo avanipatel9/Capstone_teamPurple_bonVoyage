@@ -44,7 +44,7 @@ public class TripActivity extends AppCompatActivity {
     private TextView Budget,show;
     private TextView Destination,moneyspentbyme,moneyspentdetail;
     private Button submit,location;
-    private EditText enteredmoney,enterdetail;
+    private EditText enteredmoney;
     private String moneybythis;
     private Button addBillPic,pay;
     Dialog dialog;
@@ -84,7 +84,7 @@ public class TripActivity extends AppCompatActivity {
         submit = findViewById(R.id.submit);
         location = findViewById(R.id.addLocation);
         enteredmoney = findViewById(R.id.entermoney);
-        enterdetail = findViewById(R.id.enterdetail);
+        //enterdetail = findViewById(R.id.enterdetail);
          show = findViewById(R.id.show);
         moneyspentbyme = findViewById(R.id.moneyspentbyme);
 //        moneyspentdetail = findViewById(R.id.moneyspentdetail);
@@ -102,8 +102,8 @@ public class TripActivity extends AppCompatActivity {
                 moneybythis = dataSnapshot.child(phonenumber).getValue().toString();
                 Destination.setText(destination);
                 System.out.print(moneyspent + "  " + moneyspentbyme);
-                Budget.setText("total money spent in the group:: " +moneyspent);
-                moneyspentbyme.setText("total money contributed by me:  " + moneybythis);
+                Budget.setText("Total money spent in the group: " +moneyspent);
+                moneyspentbyme.setText("Total money contributed by me:  " + moneybythis);
                 System.out.println("   ");
                 for(DataSnapshot ds : dataSnapshot.getChildren()) {
                     String name = ds.getKey().toString();
@@ -116,7 +116,7 @@ public class TripActivity extends AppCompatActivity {
                                 System.out.println(dataSnapshot.child("Name").getValue()+"  " + m);
 //                                adapter.add(m);
                                 String name = (String)dataSnapshot.child("Name").getValue();
-                                listItems.add(name + "    "  +"spent"+" " + m);
+                                listItems.add(name + "    "  +"spent : "+" " + m);
                                // listItems.add(name + "    "  + m);
                                 adapter.notifyDataSetChanged();
                                 myListView.setAdapter(adapter);
@@ -147,8 +147,8 @@ public class TripActivity extends AppCompatActivity {
                         moneyspent = dataSnapshot.child("moneyspent").getValue().toString();
                         moneybythis = dataSnapshot.child(phonenumber).getValue().toString();
                         Destination.setText(destination);
-                        Budget.setText("total money spent in the group:: " +moneyspent);
-                        moneyspentbyme.setText("total money contributed by me::  " + moneybythis);
+                        Budget.setText("Total money spent in the group: " +moneyspent);
+                        moneyspentbyme.setText("Total money contributed by me::  " + moneybythis);
 //                        listItems.remove(0);
                         listItems.clear();
                         for(DataSnapshot ds : dataSnapshot.getChildren()) {
@@ -164,8 +164,7 @@ public class TripActivity extends AppCompatActivity {
                                         System.out.println(dataSnapshot.child("Name").getValue()+"  " + m);
 //                                adapter.add(m);
                                         String name = (String)dataSnapshot.child("Name").getValue();
-
-                                        listItems.add(name + "    "  +"spent"+" " + m);
+                                        listItems.add(name + "    "  +"spent : "+" " + m);
                                         adapter.notifyDataSetChanged();
                                         myListView.setAdapter(adapter);
                                     }
@@ -197,7 +196,7 @@ public class TripActivity extends AppCompatActivity {
                     }
                 });
 
-                String expensedetail = enterdetail.getText().toString();
+               // String expensedetail = enterdetail.getText().toString();
                 int entered = Integer.parseInt(enteredmoney.getText().toString());
                 int totalforthis = entered + Integer.parseInt(moneybythis);
                 tt= totalforthis;
@@ -207,8 +206,8 @@ public class TripActivity extends AppCompatActivity {
                 String text1 = String.valueOf(totalforthis);
                 mDatabase.child(tripid).child(phonenumber).setValue(totalforthis);
                 mDatabase.child(tripid).child("moneyspent").setValue(total);
-                Budget.setText("total money spent in the group:: " + text);
-                moneyspentbyme.setText("total money contributed by me:  " + text1);
+                Budget.setText("Total money spent in the group: " + text);
+                moneyspentbyme.setText("Ttal money contributed by me:  " + text1);
                 enteredmoney.setText("");
             }
         });
