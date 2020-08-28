@@ -13,15 +13,15 @@
     android:gravity="center">
 
 
-<!--    <com.google.android.material.textview.MaterialTextView-->
-<!--        android:id="@+id/location_id"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_margin="16dp"-->
-<!--        android:text="Hello there, Welcome to the Bon Voyage splitter!"-->
-<!--        android:textAppearance="@style/TextAppearance.AppCompat.Display1"-->
-<!--        android:textStyle="italic"-->
-<!--        android:gravity="center_horizontal"/>-->
+    <!--    <com.google.android.material.textview.MaterialTextView-->
+    <!--        android:id="@+id/location_id"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_margin="16dp"-->
+    <!--        android:text="Hello there, Welcome to the Bon Voyage splitter!"-->
+    <!--        android:textAppearance="@style/TextAppearance.AppCompat.Display1"-->
+    <!--        android:textStyle="italic"-->
+    <!--        android:gravity="center_horizontal"/>-->
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -30,52 +30,53 @@
         android:weightSum="2"
         android:gravity="center">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:gravity="center">
-
-        <com.google.android.material.textview.MaterialTextView
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New User?"
-            android:textColor="#000"
-            android:textSize="20sp" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/registerButton_id"
-            android:layout_width="229dp"
-            android:layout_height="wrap_content"
-            android:onClick="onClickRegister"
-            android:text="Register" />
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New User?"
+                android:textColor="#000"
+                android:textSize="20sp" />
 
-    </LinearLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/registerButton_id"
+                android:layout_width="229dp"
+                android:layout_height="wrap_content"
+                android:onClick="onClickRegister"
+                android:text="Register" />
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:gravity="center">
+        </LinearLayout>
 
-        <com.google.android.material.textview.MaterialTextView
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="Have an account?"
-            android:textColor="#000"/>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/signinButton_id"
-            android:layout_width="229dp"
-            android:layout_height="wrap_content"
-            android:onClick="onClickSignin"
-            android:text="Sign in" />
-    </LinearLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Have an account?"
+                android:textColor="#000"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signinButton_id"
+                android:layout_width="229dp"
+                android:layout_height="wrap_content"
+                android:onClick="onClickSignin"
+                android:text="Sign in" />
+        </LinearLayout>
 
     </LinearLayout>
 
 
 </LinearLayout>
+
