@@ -14,4 +14,8 @@ public class AddFriends extends Fragment implements AdapterView.OnItemClickListe
 
     public AddFriends(){
     }
+    public static AddFriends newInstance(){
+        AddFriends fragment=new AddFriends();
+        return fragment;
+    }
 }
