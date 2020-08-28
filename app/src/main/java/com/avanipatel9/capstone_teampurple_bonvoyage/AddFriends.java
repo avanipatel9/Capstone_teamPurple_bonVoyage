@@ -27,7 +27,7 @@ public class AddFriends extends Fragment implements AdapterView.OnItemClickListe
     private EditText searchQuery;
     private ListView usersListView;
     private View view;
-    private UsersListViewAdapter adapter;
+
 
     public AddFriends(){
     }
