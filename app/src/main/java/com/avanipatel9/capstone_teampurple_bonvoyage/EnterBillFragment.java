@@ -226,5 +226,4 @@ public class EnterBillFragment extends Fragment implements View.OnClickListener,
             }
         }
     };
-
 }
