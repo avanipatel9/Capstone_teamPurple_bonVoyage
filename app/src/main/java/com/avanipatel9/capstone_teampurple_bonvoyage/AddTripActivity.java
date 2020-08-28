@@ -1,5 +1,6 @@
 package com.avanipatel9.capstone_teampurple_bonvoyage;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
@@ -11,11 +12,14 @@ import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -126,6 +130,26 @@ public class AddTripActivity extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.action_settings:
+                Intent signOut = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(signOut);
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private int getRandomNumber() {
         int randomInt = 0;
         Random random = new Random();
