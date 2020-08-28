@@ -27,8 +27,8 @@
     <include
         android:id="@+id/include"
         layout="@layout/content_main"
-        android:layout_width="415dp"
-        android:layout_height="728dp" />
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
