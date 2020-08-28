@@ -41,7 +41,7 @@
 
         <ListView
             android:id="@+id/mylist"
-            android:layout_width="259dp"
+            android:layout_width="match_parent"
             android:layout_height="180dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
@@ -54,8 +54,9 @@
 
         <TextView
             android:id="@+id/moneyspentbyme"
-            android:layout_width="339dp"
-            android:layout_height="45dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
@@ -63,17 +64,6 @@
             android:textColor="#090909"
             android:textSize="16sp"
             android:textStyle="bold" />
-
-<!--        <EditText-->
-<!--            android:id="@+id/entermoney"-->
-<!--            android:layout_width="244dp"-->
-<!--            android:layout_height="62dp"-->
-<!--            android:layout_marginStart="4dp"-->
-<!--            android:layout_marginTop="28dp"-->
-<!--            android:ems="10"-->
-<!--            android:hint="enter money"-->
-<!--            android:inputType="number"-->
-<!--            android:textSize="20dp"/>-->
 
         <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -86,8 +76,8 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/entermoney"
-                android:layout_width="330dp"
-                android:layout_height="53dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:inputType="number"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -96,7 +86,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:padding="8dp"
             android:text="Your Expense Details"
             android:id="@+id/show"
@@ -104,36 +96,15 @@
             android:textSize="16sp"
             android:textColor="@android:color/black"/>
 
-<!--    <EditText-->
-<!--        android:id="@+id/enterdetail"-->
-<!--        android:layout_width="244dp"-->
-<!--        android:layout_height="62dp"-->
-<!--        android:layout_marginStart="4dp"-->
-<!--        android:layout_marginTop="28dp"-->
-<!--        android:ems="10"-->
-<!--        android:hint="Detail"-->
-<!--        android:inputType="text"-->
-<!--        android:textSize="20dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/entermoney" />-->
-
-        <!--<com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:hint="Enter Expense Detail"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/enterdetail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:textSize="16sp" />
-        </com.google.android.material.textfield.TextInputLayout>-->
-
+            android:text="Submit Expense" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -153,54 +124,23 @@
                 android:layout_marginEnd="8dp"/>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/uploadBillPicBtn"
+                android:id="@+id/pay"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Upload Bill"
+                android:text="Pay your dues"
                 android:layout_weight="1"
-                android:layout_marginStart="8dp"
-                android:visibility="invisible"/>
-
-
+                android:layout_marginStart="8dp"/>
 
         </LinearLayout>
 
-
-        <!--    <TextView-->
-<!--        android:id="@+id/moneyspentdetail"-->
-<!--        android:layout_width="181dp"-->
-<!--        android:layout_height="31dp"-->
-<!--        android:layout_marginStart="12dp"-->
-<!--        android:layout_marginTop="1dp"-->
-<!--        android:text="Amount Spent For ?"-->
-<!--        android:textSize="20dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/moneyspentbyme" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/locationLbl"-->
-<!--        android:layout_width="181dp"-->
-<!--        android:layout_height="31dp"-->
-<!--        android:layout_marginStart="208dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:text="location"-->
-<!--        android:textSize="20dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/moneyspentbyme" />-->
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/submit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Submit Expense" />
-
-        <Button
-            android:id="@+id/pay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pay you dues" />
-
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/uploadBillPicBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Upload Bill"
+                        android:layout_weight="1"
+                        android:layout_marginStart="8dp"
+                        android:visibility="gone"/>
 
     </LinearLayout>
 
