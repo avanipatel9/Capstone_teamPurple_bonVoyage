@@ -1,5 +1,9 @@
 package com.avanipatel9.capstone_teampurple_bonvoyage;
 
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -17,5 +21,13 @@ public class AddFriends extends Fragment implements AdapterView.OnItemClickListe
     public static AddFriends newInstance(){
         AddFriends fragment=new AddFriends();
         return fragment;
+    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
+        view =inflater.inflate(R.layout.)
+    }
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
     }
 }
