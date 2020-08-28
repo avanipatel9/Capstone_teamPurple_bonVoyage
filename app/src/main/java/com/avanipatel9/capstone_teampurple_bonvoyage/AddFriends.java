@@ -33,6 +33,7 @@ public class AddFriends extends Fragment implements AdapterView.OnItemClickListe
     private void setUpListView(){
         usersDataModels=new ArrayList<>();
         filteredUsersDataModel=new ArrayList<>();
+        adapter=new usersListViewAdapter(filteredUsersDataModel)
 
     }
     @Override
