@@ -54,7 +54,8 @@ public class EnterBillFragment extends Fragment implements View.OnClickListener,
         checkedEmails=new ArrayList<>();
         friendsDataModels=new ArrayList<>();
         friendsListView.setAdapter(adapter);
-        friendsListView.
+        friendsListView.setOnItemClickListener(EnterBillFragment.this);
+        addBillButton.setOnClickListener(EnterBillFragment.this);
     }
 
     @Override
