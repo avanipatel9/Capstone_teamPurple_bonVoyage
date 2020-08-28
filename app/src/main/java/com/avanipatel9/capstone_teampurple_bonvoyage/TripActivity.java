@@ -1,5 +1,6 @@
 package com.avanipatel9.capstone_teampurple_bonvoyage;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
@@ -14,6 +15,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -241,6 +244,25 @@ public class TripActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.action_settings:
+                Intent signOut = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(signOut);
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void showchooser() {
