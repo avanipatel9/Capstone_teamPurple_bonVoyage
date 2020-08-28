@@ -69,7 +69,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 SharedPreferences.Editor context = (SharedPreferences.Editor) getSharedPreferences("phoneandpass", MODE_PRIVATE).edit();
                 context.clear().commit();
-                startActivity(new Intent(HomeActivity.this,MainActivity.class));
+                startActivity(new Intent(HomeActivity.this, SigninActivity.class));
             }
         });
 
